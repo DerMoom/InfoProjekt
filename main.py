@@ -143,7 +143,7 @@ def term_button_clicked(index, number):
 
 def csv_to_lists(file_path):
     with open(file_path, newline='', encoding="utf-8") as csv_file:  # magic library things (encoding for umlaute)
-        reader = csv.reader(csv_file)
+        reader = csv.reader(csv_file, delimiter=";")
         rows = list(reader)
     return rows
 

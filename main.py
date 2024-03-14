@@ -33,11 +33,11 @@ def about_open():
 def definitions_open():
     global set_name
     set_name = str(QFileDialog.getExistingDirectory(window, "Select Directory", "sets"))  # File Dialog for Set Select
-    definitions_innit()  # Call Innit Function
+    definitions_init()  # Call Innit Function
 
 
 # Innit on Set Select/Refresh on new Round for Definitions
-def definitions_innit():
+def definitions_init():
     global set_name  # Selected Set from definitions_open()
     global data
     data = csv_to_lists(set_name + "/def1.csv")  # Call CSV function (see below)
@@ -103,7 +103,7 @@ def def_button_clicked(index, number):
             getattr(definitions_ui, "def" + str(def_name_number) + "_button").setVisible(False)
             correct_counter = correct_counter + 1
             if correct_counter == 3:
-                definitions_innit()
+                definitions_init()
                 correct_counter = 0
         else:
             term_button_is_clicked = None
@@ -131,7 +131,7 @@ def term_button_clicked(index, number):
             getattr(definitions_ui, "def" + str(def_name_number) + "_button").setVisible(False)
             correct_counter = correct_counter + 1  # Counter Count-Up
             if correct_counter == 3:  # Check if time for refresh
-                definitions_innit()  # Run Refresh function
+                definitions_init()  # Run Refresh function
                 correct_counter = 0  # Reset counter
         else:  # If not corresponding
             term_button_is_clicked = None  # Reset so no false checks happen

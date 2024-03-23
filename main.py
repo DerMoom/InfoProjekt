@@ -6,6 +6,8 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QFileDialog
 from About import Ui_About
 from Definitions import Ui_Definitions
 from MainWindow import Ui_MainWindow
+from Open_Type import Ui_Open_Type
+from Pictures import Ui_Pictures
 from Settings import Ui_SettingsWindow
 from Set_Creator_Director import Ui_Set_Creator_Director  # Importiere alle neuen UI-Dateien
 from Set_Creator_T2T import Ui_Set_Creator_T2T  # für späteres Nutzen, Verknüpfung mit
@@ -33,6 +35,11 @@ def about_open():
     pass
 
 
+def open_type_open():
+    open_type.show()
+    pass
+
+
 def set_creator_director_open():
     set_creator_director.show()
     pass
@@ -56,8 +63,16 @@ def set_creator_ltext_open():
 # Set selection on Open Set Button press
 def definitions_open():
     global set_name
-    set_name = str(QFileDialog.getExistingDirectory(window, "Select Directory", "sets"))  # File Dialog for Set Select
+    # File Dialog for Set Select
+    set_name = str(QFileDialog.getExistingDirectory(open_type, "Select Directory", "sets"))
     definitions_init()  # Call Innit Function
+
+
+def pictures_open():
+    global set_name
+    # File Dialog for Set Select
+    set_name = str(QFileDialog.getExistingDirectory(open_type, "Select Directory", "sets"))
+    pictures_init()  # Call Innit Function
 
 
 # Innit on Set Select/Refresh on new Round for Definitions
@@ -106,6 +121,11 @@ def definitions_init():
     definitions_ui.term3_button.setChecked(False)
 
     definitions.show()  # Show Window
+    pass
+
+
+def pictures_init():
+    pictures.show()
     pass
 
 
@@ -176,7 +196,9 @@ app = QApplication([])
 window = QMainWindow()
 settings = QWidget()
 about = QWidget()
+open_type = QWidget()
 definitions = QWidget()
+pictures = QWidget()
 set_creator_director = QWidget()
 set_creator_t2t = QWidget()
 set_creator_t2i = QWidget()
@@ -191,9 +213,15 @@ settings_ui.setupUi(settings)
 # About Setup
 about_ui = Ui_About()
 about_ui.setupUi(about)
+# Open Type Select Setup
+open_type_ui = Ui_Open_Type()
+open_type_ui.setupUi(open_type)
 # Definitions Setup
 definitions_ui = Ui_Definitions()
 definitions_ui.setupUi(definitions)
+# Pictures Setup
+pictures_ui = Ui_Pictures()
+pictures_ui.setupUi(pictures)
 # Creator Director Setup
 set_creator_director_ui = Ui_Set_Creator_Director()
 set_creator_director_ui.setupUi(set_creator_director)
@@ -209,10 +237,14 @@ set_creator_ltext_ui.setupUi(set_creator_ltext)
 
 # Landingpage Connects
 landingpage_ui.SettingsButton.clicked.connect(settings_open)
-landingpage_ui.OpenButton.clicked.connect(definitions_open)  # Replace with Set Select
+landingpage_ui.OpenButton.clicked.connect(open_type_open)
 landingpage_ui.CreateButton.clicked.connect(set_creator_director_open)
 # Settings Connects
 settings_ui.about_button.clicked.connect(about_open)
+# Open Type Select Connects
+open_type_ui.T2T_Button.clicked.connect(definitions_open)
+open_type_ui.P2T_Button.clicked.connect(pictures_open)
+# open_type_ui.LText_Button.clicked.connect()
 # Definitions Connects
 definitions_ui.def1_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def1_button.toolTip(), 1))
 definitions_ui.def2_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def2_button.toolTip(), 2))

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Set_Creator_Director</class>
+ <widget class="QWidget" name="Set_Creator_Director">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>313</width>
+    <height>181</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Art des hinzugefügten Sets auswählen</string>
+  </property>
+  <widget class="QPushButton" name="Add_T2T_Button">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>251</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Begriff-zu-Definition hinzufügen</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Add_LText_Button">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>120</y>
+     <width>251</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lückentext hinzufügen</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Add_T2I_Button">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>251</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Begriff-zu-Bild hinzufügen</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

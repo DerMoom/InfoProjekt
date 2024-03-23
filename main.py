@@ -7,6 +7,10 @@ from About import Ui_About
 from Definitions import Ui_Definitions
 from MainWindow import Ui_MainWindow
 from Settings import Ui_SettingsWindow
+from Set_Creator_Director import Ui_Set_Creator_Director  # Importiere alle neuen UI-Dateien
+from Set_Creator_T2T import Ui_Set_Creator_T2T  # für späteres Nutzen, Verknüpfung mit
+from Set_Creator_T2I import Ui_Set_Creator_T2I  # den passenden Buttons muss noch gemacht
+from Set_Creator_LText import Ui_Set_Creator_LText  # werden, Versuche ich noch zu machen (22.03. 9:13)
 
 def_button_is_clicked = None
 term_button_is_clicked = None
@@ -29,6 +33,26 @@ def about_open():
     pass
 
 
+def set_creator_director_open():
+    set_creator_director.show()
+    pass
+
+
+def set_creator_t2t_open():
+    set_creator_t2t.show()
+    pass
+
+
+def set_creator_t2i_open():
+    set_creator_t2i.show()
+    pass
+
+
+def set_creator_ltext_open():
+    set_creator_ltext.show()
+    pass
+
+
 # Set selection on Open Set Button press
 def definitions_open():
     global set_name
@@ -46,12 +70,12 @@ def definitions_init():
     random.shuffle(items)  # Shuffling both lists for randomness
     random.shuffle(shuffle)
 
-# Assign first 3 Items(Definitions) from Index to buttons
+    # Assign first 3 Items(Definitions) from Index to buttons
     def1 = items[0]
     def2 = items[1]
     def3 = items[2]
 
-# Assign the 3 corresponding shuffled Items(Terms)
+    # Assign the 3 corresponding shuffled Items(Terms)
     term1 = items[shuffle[0]]
     term2 = items[shuffle[1]]
     term3 = items[shuffle[2]]
@@ -153,6 +177,10 @@ window = QMainWindow()
 settings = QWidget()
 about = QWidget()
 definitions = QWidget()
+set_creator_director = QWidget()
+set_creator_t2t = QWidget()
+set_creator_t2i = QWidget()
+set_creator_ltext = QWidget()
 
 # Landingpage Setup
 landingpage_ui = Ui_MainWindow()
@@ -166,10 +194,23 @@ about_ui.setupUi(about)
 # Definitions Setup
 definitions_ui = Ui_Definitions()
 definitions_ui.setupUi(definitions)
+# Creator Director Setup
+set_creator_director_ui = Ui_Set_Creator_Director()
+set_creator_director_ui.setupUi(set_creator_director)
+# Creator t2t Setup
+set_creator_t2t_ui = Ui_Set_Creator_T2T()
+set_creator_t2t_ui.setupUi(set_creator_t2t)
+# Creator t2i Setup
+set_creator_t2i_ui = Ui_Set_Creator_T2I()
+set_creator_t2i_ui.setupUi(set_creator_t2i)
+# Creator LText Setup
+set_creator_ltext_ui = Ui_Set_Creator_LText()
+set_creator_ltext_ui.setupUi(set_creator_ltext)
 
 # Landingpage Connects
 landingpage_ui.SettingsButton.clicked.connect(settings_open)
 landingpage_ui.OpenButton.clicked.connect(definitions_open)  # Replace with Set Select
+landingpage_ui.CreateButton.clicked.connect(set_creator_director_open)
 # Settings Connects
 settings_ui.about_button.clicked.connect(about_open)
 # Definitions Connects
@@ -179,6 +220,11 @@ definitions_ui.def3_button.clicked.connect(lambda: def_button_clicked(definition
 definitions_ui.term1_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term1_button.toolTip(), 1))
 definitions_ui.term2_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term2_button.toolTip(), 2))
 definitions_ui.term3_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term3_button.toolTip(), 3))
+# Creator Director Contents
+set_creator_director_ui.Add_T2T_Button.clicked.connect(set_creator_t2t_open)
+set_creator_director_ui.Add_T2I_Button.clicked.connect(set_creator_t2i_open)
+set_creator_director_ui.Add_LText_Button.clicked.connect(set_creator_ltext_open)
+
 
 window.show()
 app.exec()

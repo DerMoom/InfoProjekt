@@ -185,17 +185,6 @@ def pictures_term_button_clicked(index, number):
     pass
 
 
-def ltext_save():
-    body = str(set_creator_ltext_ui.LText_textEdit.toPlainText())
-    terms = str(set_creator_ltext_ui.LTerms_textEdit.toPlainText())
-    body_list = body.split()
-    terms_split = terms.split()
-    for x in body_list:
-        f = open('sets/Chemie/ltext1.csv', mode='w', encoding='utf-8')
-        # f.write(final_set.toPlainText())
-        f.close()
-
-
 # Innit on Set Select/Refresh on new Round for Definitions
 def definitions_init():
     global set_name  # Selected Set from definitions_open()
@@ -242,11 +231,6 @@ def definitions_init():
     definitions_ui.term3_button.setChecked(False)
 
     definitions.show()  # Show Window
-    pass
-
-
-def pictures_init():
-    pictures.show()
     pass
 
 
@@ -367,18 +351,24 @@ open_type_ui.T2T_Button.clicked.connect(definitions_open)
 open_type_ui.P2T_Button.clicked.connect(pictures_open)
 # open_type_ui.LText_Button.clicked.connect()
 # Definitions Connects
-definitions_ui.def1_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def1_button.toolTip(), 1))
-definitions_ui.def2_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def2_button.toolTip(), 2))
-definitions_ui.def3_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def3_button.toolTip(), 3))
-definitions_ui.term1_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term1_button.toolTip(), 1))
-definitions_ui.term2_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term2_button.toolTip(), 2))
-definitions_ui.term3_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term3_button.toolTip(), 3))
+definitions_ui.def1_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def1_button.toolTip(), 1))
+definitions_ui.def2_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def2_button.toolTip(), 2))
+definitions_ui.def3_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def3_button.toolTip(), 3))
+definitions_ui.term1_button.clicked.connect(lambda: definition_term_button_clicked(definitions_ui.term1_button.toolTip(), 1))
+definitions_ui.term2_button.clicked.connect(lambda: definition_term_button_clicked(definitions_ui.term2_button.toolTip(), 2))
+definitions_ui.term3_button.clicked.connect(lambda: definition_term_button_clicked(definitions_ui.term3_button.toolTip(), 3))
+# Pictures Connects
+pictures_ui.pic1_button.clicked.connect(lambda: pictures_pic_button_clicked(pictures_ui.pic1_button.toolTip(), 1))
+pictures_ui.pic2_button.clicked.connect(lambda: pictures_pic_button_clicked(pictures_ui.pic2_button.toolTip(), 2))
+pictures_ui.pic3_button.clicked.connect(lambda: pictures_pic_button_clicked(pictures_ui.pic3_button.toolTip(), 3))
+pictures_ui.term1_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term1_button.toolTip(), 1))
+pictures_ui.term2_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term2_button.toolTip(), 2))
+pictures_ui.term3_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term3_button.toolTip(), 3))
+
 # Creator Director Contents
 set_creator_director_ui.Add_T2T_Button.clicked.connect(set_creator_t2t_open)
 set_creator_director_ui.Add_T2I_Button.clicked.connect(set_creator_t2i_open)
 set_creator_director_ui.Add_LText_Button.clicked.connect(set_creator_ltext_open)
-# Lückentext Creator Connects
-set_creator_ltext_ui.save_button.clicked.connect(ltext_save)
 
 
 window.show()

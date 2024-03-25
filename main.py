@@ -1,6 +1,7 @@
 import csv
 import random
 
+from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QFileDialog
 
 from About import Ui_About
@@ -18,6 +19,10 @@ def_button_is_clicked = None
 term_button_is_clicked = None
 def_name_number = None
 term_name_number = None
+pictures_term_button_is_clicked = None
+pictures_pic_button_is_clicked = None
+pictures_term_name_number = None
+pictures_pic_name_number = None
 set_name = ""
 correct_counter = 0
 data = None
@@ -75,6 +80,111 @@ def pictures_open():
     pictures_init()  # Call Innit Function
 
 
+def pictures_init():
+    global set_name  # Selected Set from definitions_open()
+    global data
+    data = csv_to_lists(set_name + "/pic1.csv")  # Call CSV function (see below)
+    items = list(range(0, len(data)))  # Index of all Elements from data
+    shuffle = [0, 1, 2]  # Shuffle-List for 2nd assignment
+    random.shuffle(items)  # Shuffling both lists for randomness
+    random.shuffle(shuffle)
+
+    # Assign first 3 Items(Definitions) from Index to buttons
+    def1 = items[0]
+    def2 = items[1]
+    def3 = items[2]
+
+    # Assign the 3 corresponding shuffled Items(Terms)
+    pic1 = items[shuffle[0]]
+    pic2 = items[shuffle[1]]
+    pic3 = items[shuffle[2]]
+
+    pictures_ui.term1_button.setText(data[def1][0])  # Assigning chosen text to Buttons
+    pictures_ui.term1_button.setToolTip(str(def1))  # Assigning Index as Tooltip for later use
+    pictures_ui.term1_button.setVisible(True)  # In case of refresh
+    pictures_ui.term1_button.setChecked(False)  # In case of refresh
+    pictures_ui.pic1_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic1][1]) + ".jpg"))  # Assign Pics
+    pictures_ui.pic1_button.setToolTip(str(pic1))
+    pictures_ui.pic1_button.setVisible(True)
+    pictures_ui.pic1_button.setChecked(False)
+    pictures_ui.term2_button.setText(data[def2][0])
+    pictures_ui.term2_button.setToolTip(str(def2))
+    pictures_ui.term2_button.setVisible(True)
+    pictures_ui.term2_button.setChecked(False)
+    pictures_ui.pic2_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic2][1]) + ".jpg"))
+    pictures_ui.pic2_button.setToolTip(str(pic2))
+    pictures_ui.pic2_button.setVisible(True)
+    pictures_ui.pic2_button.setChecked(False)
+    pictures_ui.term3_button.setText(data[def3][0])
+    pictures_ui.term3_button.setToolTip(str(def3))
+    pictures_ui.term3_button.setVisible(True)
+    pictures_ui.term3_button.setChecked(False)
+    pictures_ui.pic3_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic3][1]) + ".jpg"))
+    pictures_ui.pic3_button.setToolTip(str(pic3))
+    pictures_ui.pic3_button.setVisible(True)
+    pictures_ui.pic3_button.setChecked(False)
+
+    pictures.show()  # Show Window
+    pass
+
+
+def pictures_pic_button_clicked(index, number):
+    global pictures_term_button_is_clicked
+    global pictures_pic_button_is_clicked
+    global pictures_term_name_number
+    global pictures_pic_name_number
+    global correct_counter
+    pictures_pic_button_is_clicked = index
+    pictures_pic_name_number = number
+
+    if pictures_term_button_is_clicked is not None:
+        if pictures_term_button_is_clicked == pictures_pic_button_is_clicked:
+            pictures_term_button_is_clicked = None
+            pictures_pic_button_is_clicked = None
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_button").setVisible(False)
+            getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_button").setVisible(False)
+            correct_counter = correct_counter + 1
+            if correct_counter == 3:
+                pictures_init()
+                correct_counter = 0
+        else:
+            pictures_term_button_is_clicked = None
+            pictures_pic_button_is_clicked = None
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_button").setChecked(False)
+            getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_button").setChecked(False)
+    pass
+
+
+def pictures_term_button_clicked(index, number):
+    global pictures_term_button_is_clicked  # Set-Index of last pressed Term-Button parsed as ToolTip
+    global pictures_pic_button_is_clicked  # Set-Index of last pressed Def-Button parsed as ToolTip
+    global pictures_term_name_number  # Number in Term-Button Name
+    global pictures_pic_name_number  # Number in Def-Button Name
+    global correct_counter  # Counter for refresh trigger
+    pictures_term_button_is_clicked = index  # Assign parsed Index to var
+    pictures_term_name_number = number  # Assign Name Number
+
+    if pictures_pic_button_is_clicked is not None:  # If this is the second click
+        if pictures_term_button_is_clicked == pictures_pic_button_is_clicked:  # If both buttons have the same Index
+            # (are corresponding)
+            pictures_term_button_is_clicked = None  # Reset Index Vars
+            pictures_pic_button_is_clicked = None
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_button").setVisible(False)  # Hiding
+            # Buttons
+            # for User Feedback
+            getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_button").setVisible(False)
+            correct_counter = correct_counter + 1  # Counter Count-Up
+            if correct_counter == 3:  # Check if time for refresh
+                pictures_init()  # Run Refresh function
+                correct_counter = 0  # Reset counter
+        else:  # If not corresponding
+            pictures_term_button_is_clicked = None  # Reset so no false checks happen
+            pictures_pic_button_is_clicked = None
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_button").setChecked(False)  # QOL reset
+            getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_button").setChecked(False)
+    pass
+
+
 # Innit on Set Select/Refresh on new Round for Definitions
 def definitions_init():
     global set_name  # Selected Set from definitions_open()
@@ -124,13 +234,8 @@ def definitions_init():
     pass
 
 
-def pictures_init():
-    pictures.show()
-    pass
-
-
 # Checks on Button clicked (see below)
-def def_button_clicked(index, number):
+def definitions_def_button_clicked(index, number):
     global term_button_is_clicked
     global def_button_is_clicked
     global term_name_number
@@ -157,7 +262,7 @@ def def_button_clicked(index, number):
     pass
 
 
-def term_button_clicked(index, number):
+def definition_term_button_clicked(index, number):
     global term_button_is_clicked  # Set-Index of last pressed Term-Button parsed as ToolTip
     global def_button_is_clicked  # Set-Index of last pressed Def-Button parsed as ToolTip
     global term_name_number  # Number in Term-Button Name
@@ -246,12 +351,20 @@ open_type_ui.T2T_Button.clicked.connect(definitions_open)
 open_type_ui.P2T_Button.clicked.connect(pictures_open)
 # open_type_ui.LText_Button.clicked.connect()
 # Definitions Connects
-definitions_ui.def1_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def1_button.toolTip(), 1))
-definitions_ui.def2_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def2_button.toolTip(), 2))
-definitions_ui.def3_button.clicked.connect(lambda: def_button_clicked(definitions_ui.def3_button.toolTip(), 3))
-definitions_ui.term1_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term1_button.toolTip(), 1))
-definitions_ui.term2_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term2_button.toolTip(), 2))
-definitions_ui.term3_button.clicked.connect(lambda: term_button_clicked(definitions_ui.term3_button.toolTip(), 3))
+definitions_ui.def1_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def1_button.toolTip(), 1))
+definitions_ui.def2_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def2_button.toolTip(), 2))
+definitions_ui.def3_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def3_button.toolTip(), 3))
+definitions_ui.term1_button.clicked.connect(lambda: definition_term_button_clicked(definitions_ui.term1_button.toolTip(), 1))
+definitions_ui.term2_button.clicked.connect(lambda: definition_term_button_clicked(definitions_ui.term2_button.toolTip(), 2))
+definitions_ui.term3_button.clicked.connect(lambda: definition_term_button_clicked(definitions_ui.term3_button.toolTip(), 3))
+# Pictures Connects
+pictures_ui.pic1_button.clicked.connect(lambda: pictures_pic_button_clicked(pictures_ui.pic1_button.toolTip(), 1))
+pictures_ui.pic2_button.clicked.connect(lambda: pictures_pic_button_clicked(pictures_ui.pic2_button.toolTip(), 2))
+pictures_ui.pic3_button.clicked.connect(lambda: pictures_pic_button_clicked(pictures_ui.pic3_button.toolTip(), 3))
+pictures_ui.term1_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term1_button.toolTip(), 1))
+pictures_ui.term2_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term2_button.toolTip(), 2))
+pictures_ui.term3_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term3_button.toolTip(), 3))
+
 # Creator Director Contents
 set_creator_director_ui.Add_T2T_Button.clicked.connect(set_creator_t2t_open)
 set_creator_director_ui.Add_T2I_Button.clicked.connect(set_creator_t2i_open)

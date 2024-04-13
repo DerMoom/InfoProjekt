@@ -12,19 +12,165 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Open_Type(object):
     def setupUi(self, Open_Type):
         Open_Type.setObjectName("Open_Type")
-        Open_Type.resize(400, 342)
-        self.header = QtWidgets.QLabel(parent=Open_Type)
-        self.header.setGeometry(QtCore.QRect(0, 10, 400, 60))
-        self.header.setObjectName("header")
+        Open_Type.resize(500, 468)
         self.T2T_Button = QtWidgets.QPushButton(parent=Open_Type)
-        self.T2T_Button.setGeometry(QtCore.QRect(50, 108, 300, 40))
+        self.T2T_Button.setGeometry(QtCore.QRect(10, 120, 380, 80))
+        self.T2T_Button.setStyleSheet("/* Definitions to Terms */\n"
+"\n"
+"position: absolute;\n"
+"width: 380px;\n"
+"height: 80px;\n"
+"left: 10px;\n"
+"top: 120px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"text-align: right;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"")
+        self.T2T_Button.setFlat(True)
         self.T2T_Button.setObjectName("T2T_Button")
         self.P2T_Button = QtWidgets.QPushButton(parent=Open_Type)
-        self.P2T_Button.setGeometry(QtCore.QRect(50, 186, 300, 40))
+        self.P2T_Button.setGeometry(QtCore.QRect(110, 233, 380, 80))
+        self.P2T_Button.setStyleSheet("/* Pictures to Terms */\n"
+"\n"
+"position: absolute;\n"
+"width: 380px;\n"
+"height: 80px;\n"
+"left: 110px;\n"
+"top: 233px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"text-align: left;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"\n"
+"")
+        self.P2T_Button.setFlat(True)
         self.P2T_Button.setObjectName("P2T_Button")
         self.LText_Button = QtWidgets.QPushButton(parent=Open_Type)
-        self.LText_Button.setGeometry(QtCore.QRect(50, 264, 300, 40))
+        self.LText_Button.setGeometry(QtCore.QRect(10, 346, 380, 80))
+        self.LText_Button.setStyleSheet("/* Complete Gap-Texts */\n"
+"\n"
+"position: absolute;\n"
+"width: 380px;\n"
+"height: 80px;\n"
+"left: 10px;\n"
+"top: 346px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"text-align: right;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"")
+        self.LText_Button.setFlat(True)
         self.LText_Button.setObjectName("LText_Button")
+        self.header_panel = QtWidgets.QLabel(parent=Open_Type)
+        self.header_panel.setGeometry(QtCore.QRect(-20, -20, 520, 80))
+        self.header_panel.setStyleSheet("background: #56855E;\n"
+"border-radius: 20px;\n"
+"")
+        self.header_panel.setText("")
+        self.header_panel.setObjectName("header_panel")
+        self.header = QtWidgets.QLabel(parent=Open_Type)
+        self.header.setGeometry(QtCore.QRect(0, 0, 480, 60))
+        self.header.setStyleSheet("/* Select a Type of Practice */\n"
+"\n"
+"position: absolute;\n"
+"width: 480px;\n"
+"height: 60px;\n"
+"left: 0px;\n"
+"top: 0px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #FFFFFF;\n"
+"\n"
+"")
+        self.header.setObjectName("header")
+        self.button1_panel = QtWidgets.QLabel(parent=Open_Type)
+        self.button1_panel.setGeometry(QtCore.QRect(-15, 120, 415, 80))
+        self.button1_panel.setStyleSheet("/* Rectangle 17 */\n"
+"\n"
+"position: absolute;\n"
+"width: 415px;\n"
+"height: 80px;\n"
+"left: -15px;\n"
+"top: 120px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"\n"
+"")
+        self.button1_panel.setText("")
+        self.button1_panel.setObjectName("button1_panel")
+        self.button2_panel = QtWidgets.QLabel(parent=Open_Type)
+        self.button2_panel.setGeometry(QtCore.QRect(100, 233, 415, 80))
+        self.button2_panel.setStyleSheet("/* Rectangle 17 */\n"
+"\n"
+"position: absolute;\n"
+"width: 415px;\n"
+"height: 80px;\n"
+"left: -15px;\n"
+"top: 120px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"\n"
+"")
+        self.button2_panel.setText("")
+        self.button2_panel.setObjectName("button2_panel")
+        self.button3_panel = QtWidgets.QLabel(parent=Open_Type)
+        self.button3_panel.setGeometry(QtCore.QRect(-15, 346, 415, 80))
+        self.button3_panel.setStyleSheet("/* Rectangle 17 */\n"
+"\n"
+"position: absolute;\n"
+"width: 415px;\n"
+"height: 80px;\n"
+"left: -15px;\n"
+"top: 120px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"\n"
+"")
+        self.button3_panel.setText("")
+        self.button3_panel.setObjectName("button3_panel")
+        self.button3_panel.raise_()
+        self.button2_panel.raise_()
+        self.button1_panel.raise_()
+        self.T2T_Button.raise_()
+        self.P2T_Button.raise_()
+        self.LText_Button.raise_()
+        self.header_panel.raise_()
+        self.header.raise_()
 
         self.retranslateUi(Open_Type)
         QtCore.QMetaObject.connectSlotsByName(Open_Type)
@@ -32,7 +178,7 @@ class Ui_Open_Type(object):
     def retranslateUi(self, Open_Type):
         _translate = QtCore.QCoreApplication.translate
         Open_Type.setWindowTitle(_translate("Open_Type", "Practise Type"))
-        self.header.setText(_translate("Open_Type", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:700;\">Practise Type</span></p></body></html>"))
-        self.T2T_Button.setText(_translate("Open_Type", "Text and Definition"))
-        self.P2T_Button.setText(_translate("Open_Type", "Picture and Definiton"))
-        self.LText_Button.setText(_translate("Open_Type", "Gap Text"))
+        self.T2T_Button.setText(_translate("Open_Type", "Definitions to Terms"))
+        self.P2T_Button.setText(_translate("Open_Type", "Picture to Terms"))
+        self.LText_Button.setText(_translate("Open_Type", "Complete Gap-Texts"))
+        self.header.setText(_translate("Open_Type", "Select a Type of Practice"))

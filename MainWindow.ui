@@ -26,10 +26,6 @@
       <height>50</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background: #56855E;
-</string>
-    </property>
     <property name="text">
      <string/>
     </property>

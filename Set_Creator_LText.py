@@ -12,13 +12,25 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Set_Creator_LText(object):
     def setupUi(self, Set_Creator_LText):
         Set_Creator_LText.setObjectName("Set_Creator_LText")
-        Set_Creator_LText.resize(600, 500)
+        Set_Creator_LText.resize(600, 439)
         self.LText_textEdit = QtWidgets.QTextEdit(parent=Set_Creator_LText)
         self.LText_textEdit.setGeometry(QtCore.QRect(20, 40, 561, 181))
         self.LText_textEdit.setObjectName("LText_textEdit")
         self.LText_label = QtWidgets.QLabel(parent=Set_Creator_LText)
         self.LText_label.setGeometry(QtCore.QRect(20, 20, 121, 16))
         self.LText_label.setObjectName("LText_label")
+        self.LText_wordEdit = QtWidgets.QTextEdit(parent=Set_Creator_LText)
+        self.LText_wordEdit.setGeometry(QtCore.QRect(20, 270, 561, 111))
+        self.LText_wordEdit.setObjectName("LText_wordEdit")
+        self.LText_label_2 = QtWidgets.QLabel(parent=Set_Creator_LText)
+        self.LText_label_2.setGeometry(QtCore.QRect(20, 250, 121, 16))
+        self.LText_label_2.setObjectName("LText_label_2")
+        self.ltext_cancel_button = QtWidgets.QPushButton(parent=Set_Creator_LText)
+        self.ltext_cancel_button.setGeometry(QtCore.QRect(510, 400, 75, 24))
+        self.ltext_cancel_button.setObjectName("ltext_cancel_button")
+        self.ltext_save_button = QtWidgets.QPushButton(parent=Set_Creator_LText)
+        self.ltext_save_button.setGeometry(QtCore.QRect(420, 400, 75, 24))
+        self.ltext_save_button.setObjectName("ltext_save_button")
 
         self.retranslateUi(Set_Creator_LText)
         QtCore.QMetaObject.connectSlotsByName(Set_Creator_LText)
@@ -27,3 +39,6 @@ class Ui_Set_Creator_LText(object):
         _translate = QtCore.QCoreApplication.translate
         Set_Creator_LText.setWindowTitle(_translate("Set_Creator_LText", "Lückentext hinzufügen"))
         self.LText_label.setText(_translate("Set_Creator_LText", "Lückentext einfügen:"))
+        self.LText_label_2.setText(_translate("Set_Creator_LText", "Lernwörter festhalten:"))
+        self.ltext_cancel_button.setText(_translate("Set_Creator_LText", "Abbrechen"))
+        self.ltext_save_button.setText(_translate("Set_Creator_LText", "Speichern"))

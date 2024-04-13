@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QFileDialog
 
 from About import Ui_About
 from Definitions import Ui_Definitions
+from LText import Ui_LText
 from MainWindow import Ui_MainWindow
 from Open_Type import Ui_Open_Type
 from Pictures import Ui_Pictures
@@ -26,6 +27,8 @@ pictures_pic_name_number = None
 set_name = ""
 correct_counter = 0
 data = None
+text_list = []
+word_list = []
 
 
 # Open Settings on Settings Button press
@@ -75,56 +78,65 @@ def definitions_open():
 
 def pictures_open():
     global set_name
-    # File Dialog for Set Select
     set_name = str(QFileDialog.getExistingDirectory(open_type, "Select Directory", "sets"))
-    pictures_init()  # Call Innit Function
+    pictures_init()
+
+
+def ltext_open():
+    global set_name
+    set_name = str(QFileDialog.getExistingDirectory(open_type, "Select Directory", "sets"))
+    ltext_init()
 
 
 def pictures_init():
+    open_type.close()
     global set_name  # Selected Set from definitions_open()
     global data
-    data = csv_to_lists(set_name + "/pic1.csv")  # Call CSV function (see below)
-    items = list(range(0, len(data)))  # Index of all Elements from data
-    shuffle = [0, 1, 2]  # Shuffle-List for 2nd assignment
-    random.shuffle(items)  # Shuffling both lists for randomness
-    random.shuffle(shuffle)
+    try:
+        data = csv_to_lists(set_name + "/pic1.csv")  # Call CSV function (see below)
+        items = list(range(0, len(data)))  # Index of all Elements from data
+        shuffle = [0, 1, 2]  # Shuffle-List for 2nd assignment
+        random.shuffle(items)  # Shuffling both lists for randomness
+        random.shuffle(shuffle)
 
-    # Assign first 3 Items(Definitions) from Index to buttons
-    def1 = items[0]
-    def2 = items[1]
-    def3 = items[2]
+        # Assign first 3 Items(Definitions) from Index to buttons
+        def1 = items[0]
+        def2 = items[1]
+        def3 = items[2]
 
-    # Assign the 3 corresponding shuffled Items(Terms)
-    pic1 = items[shuffle[0]]
-    pic2 = items[shuffle[1]]
-    pic3 = items[shuffle[2]]
+        # Assign the 3 corresponding shuffled Items(Terms)
+        pic1 = items[shuffle[0]]
+        pic2 = items[shuffle[1]]
+        pic3 = items[shuffle[2]]
 
-    pictures_ui.term1_button.setText(data[def1][0])  # Assigning chosen text to Buttons
-    pictures_ui.term1_button.setToolTip(str(def1))  # Assigning Index as Tooltip for later use
-    pictures_ui.term1_button.setVisible(True)  # In case of refresh
-    pictures_ui.term1_button.setChecked(False)  # In case of refresh
-    pictures_ui.pic1_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic1][1]) + ".jpg"))  # Assign Pics
-    pictures_ui.pic1_button.setToolTip(str(pic1))
-    pictures_ui.pic1_button.setVisible(True)
-    pictures_ui.pic1_button.setChecked(False)
-    pictures_ui.term2_button.setText(data[def2][0])
-    pictures_ui.term2_button.setToolTip(str(def2))
-    pictures_ui.term2_button.setVisible(True)
-    pictures_ui.term2_button.setChecked(False)
-    pictures_ui.pic2_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic2][1]) + ".jpg"))
-    pictures_ui.pic2_button.setToolTip(str(pic2))
-    pictures_ui.pic2_button.setVisible(True)
-    pictures_ui.pic2_button.setChecked(False)
-    pictures_ui.term3_button.setText(data[def3][0])
-    pictures_ui.term3_button.setToolTip(str(def3))
-    pictures_ui.term3_button.setVisible(True)
-    pictures_ui.term3_button.setChecked(False)
-    pictures_ui.pic3_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic3][1]) + ".jpg"))
-    pictures_ui.pic3_button.setToolTip(str(pic3))
-    pictures_ui.pic3_button.setVisible(True)
-    pictures_ui.pic3_button.setChecked(False)
+        pictures_ui.term1_button.setText(data[def1][0])  # Assigning chosen text to Buttons
+        pictures_ui.term1_button.setToolTip(str(def1))  # Assigning Index as Tooltip for later use
+        pictures_ui.term1_button.setVisible(True)  # In case of refresh
+        pictures_ui.term1_button.setChecked(False)  # In case of refresh
+        pictures_ui.pic1_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic1][1]) + ".jpg"))  # Assign Pics
+        pictures_ui.pic1_button.setToolTip(str(pic1))
+        pictures_ui.pic1_button.setVisible(True)
+        pictures_ui.pic1_button.setChecked(False)
+        pictures_ui.term2_button.setText(data[def2][0])
+        pictures_ui.term2_button.setToolTip(str(def2))
+        pictures_ui.term2_button.setVisible(True)
+        pictures_ui.term2_button.setChecked(False)
+        pictures_ui.pic2_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic2][1]) + ".jpg"))
+        pictures_ui.pic2_button.setToolTip(str(pic2))
+        pictures_ui.pic2_button.setVisible(True)
+        pictures_ui.pic2_button.setChecked(False)
+        pictures_ui.term3_button.setText(data[def3][0])
+        pictures_ui.term3_button.setToolTip(str(def3))
+        pictures_ui.term3_button.setVisible(True)
+        pictures_ui.term3_button.setChecked(False)
+        pictures_ui.pic3_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic3][1]) + ".jpg"))
+        pictures_ui.pic3_button.setToolTip(str(pic3))
+        pictures_ui.pic3_button.setVisible(True)
+        pictures_ui.pic3_button.setChecked(False)
 
-    pictures.show()  # Show Window
+        pictures.show()  # Show Window
+    except TypeError:
+        print("")
     pass
 
 
@@ -187,50 +199,54 @@ def pictures_term_button_clicked(index, number):
 
 # Innit on Set Select/Refresh on new Round for Definitions
 def definitions_init():
+    open_type.close()
     global set_name  # Selected Set from definitions_open()
     global data
-    data = csv_to_lists(set_name + "/def1.csv")  # Call CSV function (see below)
-    items = list(range(0, len(data)))  # Index of all Elements from data
-    shuffle = [0, 1, 2]  # Shuffle-List for 2nd assignment
-    random.shuffle(items)  # Shuffling both lists for randomness
-    random.shuffle(shuffle)
+    try:
+        data = csv_to_lists(set_name + "/def1.csv")  # Call CSV function (see below)
+        items = list(range(0, len(data)))  # Index of all Elements from data
+        shuffle = [0, 1, 2]  # Shuffle-List for 2nd assignment
+        random.shuffle(items)  # Shuffling both lists for randomness
+        random.shuffle(shuffle)
 
-    # Assign first 3 Items(Definitions) from Index to buttons
-    def1 = items[0]
-    def2 = items[1]
-    def3 = items[2]
+        # Assign first 3 Items(Definitions) from Index to buttons
+        def1 = items[0]
+        def2 = items[1]
+        def3 = items[2]
 
-    # Assign the 3 corresponding shuffled Items(Terms)
-    term1 = items[shuffle[0]]
-    term2 = items[shuffle[1]]
-    term3 = items[shuffle[2]]
+        # Assign the 3 corresponding shuffled Items(Terms)
+        term1 = items[shuffle[0]]
+        term2 = items[shuffle[1]]
+        term3 = items[shuffle[2]]
 
-    definitions_ui.def1_button.setText(data[def1][0])  # Assigning chosen text to Buttons
-    definitions_ui.def1_button.setToolTip(str(def1))  # Assigning Index as Tooltip for later use
-    definitions_ui.def1_button.setVisible(True)  # In case of refresh
-    definitions_ui.def1_button.setChecked(False)  # In case of refresh
-    definitions_ui.term1_button.setText(data[term1][1])
-    definitions_ui.term1_button.setToolTip(str(term1))
-    definitions_ui.term1_button.setVisible(True)
-    definitions_ui.term1_button.setChecked(False)
-    definitions_ui.def2_button.setText(data[def2][0])
-    definitions_ui.def2_button.setToolTip(str(def2))
-    definitions_ui.def2_button.setVisible(True)
-    definitions_ui.def2_button.setChecked(False)
-    definitions_ui.term2_button.setText(data[term2][1])
-    definitions_ui.term2_button.setToolTip(str(term2))
-    definitions_ui.term2_button.setVisible(True)
-    definitions_ui.term2_button.setChecked(False)
-    definitions_ui.def3_button.setText(data[def3][0])
-    definitions_ui.def3_button.setToolTip(str(def3))
-    definitions_ui.def3_button.setVisible(True)
-    definitions_ui.def3_button.setChecked(False)
-    definitions_ui.term3_button.setText(data[term3][1])
-    definitions_ui.term3_button.setToolTip(str(term3))
-    definitions_ui.term3_button.setVisible(True)
-    definitions_ui.term3_button.setChecked(False)
+        definitions_ui.def1_button.setText(data[def1][0])  # Assigning chosen text to Buttons
+        definitions_ui.def1_button.setToolTip(str(def1))  # Assigning Index as Tooltip for later use
+        definitions_ui.def1_button.setVisible(True)  # In case of refresh
+        definitions_ui.def1_button.setChecked(False)  # In case of refresh
+        definitions_ui.term1_button.setText(data[term1][1])
+        definitions_ui.term1_button.setToolTip(str(term1))
+        definitions_ui.term1_button.setVisible(True)
+        definitions_ui.term1_button.setChecked(False)
+        definitions_ui.def2_button.setText(data[def2][0])
+        definitions_ui.def2_button.setToolTip(str(def2))
+        definitions_ui.def2_button.setVisible(True)
+        definitions_ui.def2_button.setChecked(False)
+        definitions_ui.term2_button.setText(data[term2][1])
+        definitions_ui.term2_button.setToolTip(str(term2))
+        definitions_ui.term2_button.setVisible(True)
+        definitions_ui.term2_button.setChecked(False)
+        definitions_ui.def3_button.setText(data[def3][0])
+        definitions_ui.def3_button.setToolTip(str(def3))
+        definitions_ui.def3_button.setVisible(True)
+        definitions_ui.def3_button.setChecked(False)
+        definitions_ui.term3_button.setText(data[term3][1])
+        definitions_ui.term3_button.setToolTip(str(term3))
+        definitions_ui.term3_button.setVisible(True)
+        definitions_ui.term3_button.setChecked(False)
 
-    definitions.show()  # Show Window
+        definitions.show()
+    except TypeError:
+        print("")
     pass
 
 
@@ -290,11 +306,61 @@ def definition_term_button_clicked(index, number):
     pass
 
 
+def ltext_init():
+    open_type.close()
+    global set_name
+    global text_list
+    global word_list
+    try:
+        index = csv_to_lists(set_name + "/ltext1.csv")
+        random_num = random_even_number(0, len(index)-1)
+        text_list = index[random_num][0].split()
+        word_list = index[random_num + 1][0].split(", ")
+
+        for i in range(0, len(text_list)):
+            for j in range(0, len(word_list)):
+                if compare_strings(text_list[i], word_list[j]):
+                    text_list[i] = "_____"
+
+        ltext_ui.words_input.clear()
+        ltext_ui.text_area.clear()
+        output = ' '.join(text_list)
+        ltext_ui.text_area.append(output)
+
+        ltext.show()
+    except TypeError:
+        print("")
+    pass
+
+
+def ltext_check():
+    words = ltext_ui.words_input.text().split(", ")
+    if words == word_list:
+        ltext_init()
+    pass
+
+
 def csv_to_lists(file_path):
-    with open(file_path, newline='', encoding="utf-8") as csv_file:  # magic library things (encoding for umlaute)
-        reader = csv.reader(csv_file, delimiter=";")
-        rows = list(reader)
-    return rows
+    try:
+        with open(file_path, newline='', encoding="utf-8") as csv_file:  # magic library things (encoding for umlaute)
+            reader = csv.reader(csv_file, delimiter=";")
+            rows = list(reader)
+        return rows
+    except FileNotFoundError:
+        print("Please choose a file!")
+
+
+def compare_strings(string1, string2):
+    string1 = string1.rstrip(".")
+    string1 = string1.rstrip(",")
+    return string1 == string2
+
+
+def random_even_number(start, end):
+    if end % 2 != 0:
+        end -= 1
+    num = random.randrange(start, end + 1, 2)
+    return num
 
 
 app = QApplication([])
@@ -304,6 +370,7 @@ about = QWidget()
 open_type = QWidget()
 definitions = QWidget()
 pictures = QWidget()
+ltext = QWidget()
 set_creator_director = QWidget()
 set_creator_t2t = QWidget()
 set_creator_t2i = QWidget()
@@ -327,6 +394,9 @@ definitions_ui.setupUi(definitions)
 # Pictures Setup
 pictures_ui = Ui_Pictures()
 pictures_ui.setupUi(pictures)
+# LText Setup
+ltext_ui = Ui_LText()
+ltext_ui.setupUi(ltext)
 # Creator Director Setup
 set_creator_director_ui = Ui_Set_Creator_Director()
 set_creator_director_ui.setupUi(set_creator_director)
@@ -344,12 +414,13 @@ set_creator_ltext_ui.setupUi(set_creator_ltext)
 landingpage_ui.SettingsButton.clicked.connect(settings_open)
 landingpage_ui.OpenButton.clicked.connect(open_type_open)
 landingpage_ui.CreateButton.clicked.connect(set_creator_director_open)
+landingpage_ui.about_button.clicked.connect(about_open)
 # Settings Connects
 settings_ui.about_button.clicked.connect(about_open)
 # Open Type Select Connects
 open_type_ui.T2T_Button.clicked.connect(definitions_open)
 open_type_ui.P2T_Button.clicked.connect(pictures_open)
-# open_type_ui.LText_Button.clicked.connect()
+open_type_ui.LText_Button.clicked.connect(ltext_open)
 # Definitions Connects
 definitions_ui.def1_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def1_button.toolTip(), 1))
 definitions_ui.def2_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def2_button.toolTip(), 2))
@@ -364,12 +435,12 @@ pictures_ui.pic3_button.clicked.connect(lambda: pictures_pic_button_clicked(pict
 pictures_ui.term1_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term1_button.toolTip(), 1))
 pictures_ui.term2_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term2_button.toolTip(), 2))
 pictures_ui.term3_button.clicked.connect(lambda: pictures_term_button_clicked(pictures_ui.term3_button.toolTip(), 3))
-
+# LText Connects
+ltext_ui.check_button.clicked.connect(ltext_check)
 # Creator Director Contents
 set_creator_director_ui.Add_T2T_Button.clicked.connect(set_creator_t2t_open)
 set_creator_director_ui.Add_T2I_Button.clicked.connect(set_creator_t2i_open)
 set_creator_director_ui.Add_LText_Button.clicked.connect(set_creator_ltext_open)
-
 
 window.show()
 app.exec()

@@ -18,8 +18,6 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.OpenButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.OpenButton.setGeometry(QtCore.QRect(410, 291, 580, 50))
-        self.OpenButton.setStyleSheet("background: #56855E;\n"
-"")
         self.OpenButton.setText("")
         self.OpenButton.setFlat(True)
         self.OpenButton.setObjectName("OpenButton")

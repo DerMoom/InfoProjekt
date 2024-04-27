@@ -219,29 +219,41 @@ def definitions_init():
         term2 = items[shuffle[1]]
         term3 = items[shuffle[2]]
 
-        definitions_ui.def1_button.setText(data[def1][0])  # Assigning chosen text to Buttons
+        definitions_ui.def1_text.setText(data[def1][0])  # Assigning chosen text to Buttons
         definitions_ui.def1_button.setToolTip(str(def1))  # Assigning Index as Tooltip for later use
         definitions_ui.def1_button.setVisible(True)  # In case of refresh
+        definitions_ui.def1_text.setVisible(True)
+        definitions_ui.def1_panel.setVisible(True)
         definitions_ui.def1_button.setChecked(False)  # In case of refresh
-        definitions_ui.term1_button.setText(data[term1][1])
+        definitions_ui.term1_text.setText(data[term1][1])
         definitions_ui.term1_button.setToolTip(str(term1))
         definitions_ui.term1_button.setVisible(True)
+        definitions_ui.term1_text.setVisible(True)
+        definitions_ui.term1_panel.setVisible(True)
         definitions_ui.term1_button.setChecked(False)
-        definitions_ui.def2_button.setText(data[def2][0])
+        definitions_ui.def2_text.setText(data[def2][0])
         definitions_ui.def2_button.setToolTip(str(def2))
         definitions_ui.def2_button.setVisible(True)
+        definitions_ui.def2_text.setVisible(True)
+        definitions_ui.def2_panel.setVisible(True)
         definitions_ui.def2_button.setChecked(False)
-        definitions_ui.term2_button.setText(data[term2][1])
+        definitions_ui.term2_text.setText(data[term2][1])
         definitions_ui.term2_button.setToolTip(str(term2))
         definitions_ui.term2_button.setVisible(True)
+        definitions_ui.term2_text.setVisible(True)
+        definitions_ui.term2_panel.setVisible(True)
         definitions_ui.term2_button.setChecked(False)
-        definitions_ui.def3_button.setText(data[def3][0])
+        definitions_ui.def3_text.setText(data[def3][0])
         definitions_ui.def3_button.setToolTip(str(def3))
         definitions_ui.def3_button.setVisible(True)
+        definitions_ui.def3_text.setVisible(True)
+        definitions_ui.def3_panel.setVisible(True)
         definitions_ui.def3_button.setChecked(False)
-        definitions_ui.term3_button.setText(data[term3][1])
+        definitions_ui.term3_text.setText(data[term3][1])
         definitions_ui.term3_button.setToolTip(str(term3))
         definitions_ui.term3_button.setVisible(True)
+        definitions_ui.term3_text.setVisible(True)
+        definitions_ui.term3_panel.setVisible(True)
         definitions_ui.term3_button.setChecked(False)
 
         definitions.show()
@@ -265,7 +277,11 @@ def definitions_def_button_clicked(index, number):
             term_button_is_clicked = None
             def_button_is_clicked = None
             getattr(definitions_ui, "term" + str(term_name_number) + "_button").setVisible(False)
+            getattr(definitions_ui, "term" + str(term_name_number) + "_text").setVisible(False)
+            getattr(definitions_ui, "term" + str(term_name_number) + "_panel").setVisible(False)
             getattr(definitions_ui, "def" + str(def_name_number) + "_button").setVisible(False)
+            getattr(definitions_ui, "def" + str(def_name_number) + "_text").setVisible(False)
+            getattr(definitions_ui, "def" + str(def_name_number) + "_panel").setVisible(False)
             correct_counter = correct_counter + 1
             if correct_counter == 3:
                 definitions_init()
@@ -291,9 +307,14 @@ def definition_term_button_clicked(index, number):
         if term_button_is_clicked == def_button_is_clicked:  # If both buttons have the same Index (are corresponding)
             term_button_is_clicked = None  # Reset Index Vars
             def_button_is_clicked = None
-            getattr(definitions_ui, "term" + str(term_name_number) + "_button").setVisible(False)  # Hiding Buttons
-            # for User Feedback
+            # Hiding Buttons for User Feedback
+            getattr(definitions_ui, "term" + str(term_name_number) + "_button").setVisible(False)
+            getattr(definitions_ui, "term" + str(term_name_number) + "_text").setVisible(False)
+            getattr(definitions_ui, "term" + str(term_name_number) + "_panel").setVisible(False)
             getattr(definitions_ui, "def" + str(def_name_number) + "_button").setVisible(False)
+            getattr(definitions_ui, "def" + str(def_name_number) + "_text").setVisible(False)
+            getattr(definitions_ui, "def" + str(def_name_number) + "_panel").setVisible(False)
+
             correct_counter = correct_counter + 1  # Counter Count-Up
             if correct_counter == 3:  # Check if time for refresh
                 definitions_init()  # Run Refresh function

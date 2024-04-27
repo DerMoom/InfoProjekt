@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>720</width>
-    <height>250</height>
+    <width>1200</width>
+    <height>530</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,135 +16,624 @@
   <widget class="QLabel" name="header">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>10</y>
-     <width>720</width>
-     <height>60</height>
+     <x>10</x>
+     <y>0</y>
+     <width>320</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definitions to Terms */
+
+position: absolute;
+width: 320px;
+height: 70px;
+left: 10px;
+top: 0px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+</string>
+   </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Definitions&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Connect the definition to its term&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Definitions to Terms&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="def1_button">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>400</width>
-     <height>30</height>
+     <x>15</x>
+     <y>148</y>
+     <width>570</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Definition 1</string>
+    <string/>
    </property>
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="def2_button">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>150</y>
-     <width>400</width>
-     <height>30</height>
+     <x>15</x>
+     <y>260</y>
+     <width>570</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Definition 2</string>
+    <string/>
    </property>
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="def3_button">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>400</width>
-     <height>30</height>
+     <x>15</x>
+     <y>372</y>
+     <width>570</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Definition 3</string>
+    <string/>
    </property>
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="term1_button">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>100</y>
-     <width>200</width>
-     <height>30</height>
+     <x>815</x>
+     <y>148</y>
+     <width>370</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Term 1</string>
+    <string/>
    </property>
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="term2_button">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>150</y>
-     <width>200</width>
-     <height>30</height>
+     <x>815</x>
+     <y>260</y>
+     <width>370</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Term 2</string>
+    <string/>
    </property>
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="term3_button">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>200</y>
-     <width>200</width>
-     <height>30</height>
+     <x>815</x>
+     <y>372</y>
+     <width>370</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Term 3</string>
+    <string/>
    </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
   </widget>
-  <zorder>term1_button</zorder>
+  <widget class="QLabel" name="header_panel">
+   <property name="geometry">
+    <rect>
+     <x>-30</x>
+     <y>-30</y>
+     <width>1230</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #56855E;
+border-radius: 30px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="description">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>34</y>
+     <width>394</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Connect the definitions to the corresponding terms. */
+
+position: absolute;
+width: 394px;
+height: 12px;
+left: 330px;
+top: 36px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Connect the definitions to the corresponding terms.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="def1_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>148</y>
+     <width>615</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 21 */
+
+position: absolute;
+width: 615px;
+height: 80px;
+left: -15px;
+top: 148px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="def2_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>260</y>
+     <width>615</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 21 */
+
+position: absolute;
+width: 615px;
+height: 80px;
+left: -15px;
+top: 148px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="def3_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>372</y>
+     <width>615</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 21 */
+
+position: absolute;
+width: 615px;
+height: 80px;
+left: -15px;
+top: 148px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="def1_text">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>148</y>
+     <width>570</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definition 1 */
+
+position: absolute;
+width: 570px;
+height: 80px;
+left: 15px;
+top: 148px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Definition 1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="def2_text">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>260</y>
+     <width>570</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definition 1 */
+
+position: absolute;
+width: 570px;
+height: 80px;
+left: 15px;
+top: 148px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Definition 2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="def3_text">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>375</y>
+     <width>570</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definition 1 */
+
+position: absolute;
+width: 570px;
+height: 80px;
+left: 15px;
+top: 148px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Definition 3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term1_panel">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>148</y>
+     <width>415</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 24 */
+
+position: absolute;
+width: 415px;
+height: 80px;
+left: 800px;
+top: 148px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term2_panel">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>260</y>
+     <width>415</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 24 */
+
+position: absolute;
+width: 415px;
+height: 80px;
+left: 800px;
+top: 148px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term3_panel">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>372</y>
+     <width>415</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 24 */
+
+position: absolute;
+width: 415px;
+height: 80px;
+left: 800px;
+top: 148px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term1_text">
+   <property name="geometry">
+    <rect>
+     <x>815</x>
+     <y>148</y>
+     <width>370</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definition 1 */
+
+position: absolute;
+width: 570px;
+height: 80px;
+left: 15px;
+top: 148px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Term 1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term2_text">
+   <property name="geometry">
+    <rect>
+     <x>815</x>
+     <y>260</y>
+     <width>370</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definition 1 */
+
+position: absolute;
+width: 570px;
+height: 80px;
+left: 15px;
+top: 148px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Term 2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term3_text">
+   <property name="geometry">
+    <rect>
+     <x>815</x>
+     <y>372</y>
+     <width>370</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definition 1 */
+
+position: absolute;
+width: 570px;
+height: 80px;
+left: 15px;
+top: 148px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Term 3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <zorder>header_panel</zorder>
   <zorder>header</zorder>
-  <zorder>def1_button</zorder>
+  <zorder>description</zorder>
+  <zorder>def1_panel</zorder>
+  <zorder>def2_panel</zorder>
+  <zorder>def3_panel</zorder>
+  <zorder>def1_text</zorder>
+  <zorder>def2_text</zorder>
+  <zorder>def3_text</zorder>
   <zorder>def2_button</zorder>
+  <zorder>def1_button</zorder>
   <zorder>def3_button</zorder>
+  <zorder>term1_panel</zorder>
+  <zorder>term2_panel</zorder>
+  <zorder>term3_panel</zorder>
+  <zorder>term1_text</zorder>
+  <zorder>term2_text</zorder>
+  <zorder>term3_text</zorder>
+  <zorder>term1_button</zorder>
   <zorder>term2_button</zorder>
   <zorder>term3_button</zorder>
  </widget>

@@ -15,6 +15,7 @@ class Ui_LText(object):
         LText.resize(510, 283)
         self.text_area = QtWidgets.QTextEdit(parent=LText)
         self.text_area.setGeometry(QtCore.QRect(10, 10, 491, 171))
+        self.text_area.setReadOnly(True)
         self.text_area.setObjectName("text_area")
         self.words_input = QtWidgets.QLineEdit(parent=LText)
         self.words_input.setGeometry(QtCore.QRect(10, 210, 491, 22))

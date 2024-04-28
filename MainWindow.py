@@ -236,7 +236,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Intel Grabbers"))
         self.Header_label.setText(_translate("MainWindow", "Vocab-Trainer"))
         self.authors_label.setText(_translate("MainWindow", "by Moritz & Thor"))
-        self.create_text.setText(_translate("MainWindow", "Create Set"))
+        self.create_text.setText(_translate("MainWindow", "Edit Set"))
         self.open_text.setText(_translate("MainWindow", "Open Set"))
         self.settings_text.setText(_translate("MainWindow", "Settings"))
         self.logo_panel.setText(_translate("MainWindow", "mascot here"))

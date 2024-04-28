@@ -214,7 +214,7 @@ color: #E3DBA4;
 </string>
     </property>
     <property name="text">
-     <string>Create Set</string>
+     <string>Edit Set</string>
     </property>
    </widget>
    <widget class="QLabel" name="open_panel">

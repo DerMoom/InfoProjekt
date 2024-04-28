@@ -12,9 +12,9 @@ from Open_Type import Ui_Open_Type
 from Pictures import Ui_Pictures
 from Settings import Ui_SettingsWindow
 from Set_Creator_Director import Ui_Set_Creator_Director  # Importiere alle neuen UI-Dateien
-from Set_Creator_T2T import Ui_Set_Creator_T2T  # für späteres Nutzen, Verknüpfung mit
-from Set_Creator_T2I import Ui_Set_Creator_T2I  # den passenden Buttons muss noch gemacht
-from Set_Creator_LText import Ui_Set_Creator_LText  # werden, Versuche ich noch zu machen (22.03. 9:13)
+from editor_T2T import Ui_Set_Creator_T2T  # für späteres Nutzen, Verknüpfung mit
+from editor_T2I import Ui_Set_Creator_T2I  # den passenden Buttons muss noch gemacht
+from editor_LText import Ui_Set_Creator_LText  # werden, Versuche ich noch zu machen (22.03. 9:13)
 
 def_button_is_clicked = None
 term_button_is_clicked = None
@@ -25,6 +25,7 @@ pictures_pic_button_is_clicked = None
 pictures_term_name_number = None
 pictures_pic_name_number = None
 set_name = ""
+file = ""
 correct_counter = 0
 data = None
 text_list = []
@@ -48,23 +49,26 @@ def open_type_open():
     pass
 
 
-def set_creator_director_open():
-    set_creator_director.show()
+def editor_director_open():
+    editor_director.show()
     pass
 
 
-def set_creator_t2t_open():
-    set_creator_t2t.show()
+def editor_t2t_open():
+    editor_t2t_init()
+    editor_t2t.show()
     pass
 
 
-def set_creator_t2i_open():
-    set_creator_t2i.show()
+def editor_t2i_open():
+    editor_t2i_init()
+    editor_t2i.show()
     pass
 
 
-def set_creator_ltext_open():
-    set_creator_ltext.show()
+def editor_ltext_open():
+    editor_ltext_init()
+    editor_ltext.show()
     pass
 
 
@@ -72,20 +76,78 @@ def set_creator_ltext_open():
 def definitions_open():
     global set_name
     # File Dialog for Set Select
-    set_name = str(QFileDialog.getExistingDirectory(open_type, "Select Directory", "sets"))
+    set_name = str(QFileDialog.getOpenFileName(open_type, "Select File", "sets/T2T", filter="*.csv"))
     definitions_init()  # Call Innit Function
 
 
 def pictures_open():
     global set_name
-    set_name = str(QFileDialog.getExistingDirectory(open_type, "Select Directory", "sets"))
+    set_name = str(QFileDialog.getOpenFileName(open_type, "Select File", "sets/T2I", filter="*.csv"))
     pictures_init()
 
 
 def ltext_open():
     global set_name
-    set_name = str(QFileDialog.getExistingDirectory(open_type, "Select Directory", "sets"))
+    set_name = str(QFileDialog.getOpenFileName(open_type, "Select File", "sets/LText", filter="*.csv"))
     ltext_init()
+
+
+def editor_t2t_init():
+    global file
+    file = str(QFileDialog.getOpenFileName(filter="*.csv", directory="sets/T2T"))
+    content = csv_to_lists(file)
+    editor_t2t_ui.text_area.setText("")
+    for i in range(0, len(content)):
+        editor_t2t_ui.text_area.append(str(content[i][0]) + "; " + str(content[i][1]))
+    pass
+
+
+def editor_t2t_save():
+    global file
+    save = open(file.strip("()").split(",")[0].strip("'"), "w")
+    save.write(editor_t2t_ui.text_area.toPlainText())
+    save.close()
+    editor_t2t.close()
+    pass
+
+
+def editor_t2i_init():
+    global file
+    file = str(QFileDialog.getOpenFileName(filter="*.csv", directory="sets/T2I"))
+    content = csv_to_lists(file)
+    editor_t2i_ui.text_area.setText("")
+    for i in range(0, len(content)):
+        editor_t2i_ui.text_area.append(str(content[i][0]) + "; " + str(content[i][1]))
+    pass
+
+
+def editor_t2i_save():
+    global file
+    save = open(file.strip("()").split(",")[0].strip("'"), "w")
+    save.write(editor_t2i_ui.text_area.toPlainText())
+    save.close()
+    editor_t2i.close()
+    pass
+
+
+def editor_ltext_init():
+    global file
+    file = str(QFileDialog.getOpenFileName(filter="*.txt", directory="sets/LText"))
+    o = open(file.strip("()").split(",")[0].strip("'"), "r")
+    content = o.read()
+    editor_ltext_ui.text_area.setText("")
+    editor_ltext_ui.text_area.setText(content)
+    o.close()
+    pass
+
+
+def editor_ltext_save():
+    global file
+    save = open(file.strip("()").split(",")[0].strip("'"), "w")
+    save.write(editor_ltext_ui.text_area.toPlainText())
+    save.close()
+    editor_ltext.close()
+    pass
 
 
 def pictures_init():
@@ -93,7 +155,7 @@ def pictures_init():
     global set_name  # Selected Set from definitions_open()
     global data
     try:
-        data = csv_to_lists(set_name + "/pic1.csv")  # Call CSV function (see below)
+        data = csv_to_lists(set_name)  # Call CSV function (see below)
         items = list(range(0, len(data)))  # Index of all Elements from data
         shuffle = [0, 1, 2]  # Shuffle-List for 2nd assignment
         random.shuffle(items)  # Shuffling both lists for randomness
@@ -203,7 +265,7 @@ def definitions_init():
     global set_name  # Selected Set from definitions_open()
     global data
     try:
-        data = csv_to_lists(set_name + "/def1.csv")  # Call CSV function (see below)
+        data = csv_to_lists(set_name)  # Call CSV function (see below)
         items = list(range(0, len(data)))  # Index of all Elements from data
         shuffle = [0, 1, 2]  # Shuffle-List for 2nd assignment
         random.shuffle(items)  # Shuffling both lists for randomness
@@ -333,7 +395,7 @@ def ltext_init():
     global text_list
     global word_list
     try:
-        index = csv_to_lists(set_name + "/ltext1.csv")
+        index = csv_to_lists(set_name)
         random_num = random_even_number(0, len(index)-1)
         text_list = index[random_num][0].split()
         word_list = index[random_num + 1][0].split(", ")
@@ -358,12 +420,14 @@ def ltext_check():
     words = ltext_ui.words_input.text().split(", ")
     if words == word_list:
         ltext_init()
+    else:
+        ltext_ui.words_input.clear()
     pass
 
 
 def csv_to_lists(file_path):
     try:
-        with open(file_path, newline='', encoding="utf-8") as csv_file:  # magic library things (encoding for umlaute)
+        with open(file_path.strip("()").split(",")[0].strip("'"), newline='', encoding="utf-8") as csv_file:
             reader = csv.reader(csv_file, delimiter=";")
             rows = list(reader)
         return rows
@@ -392,10 +456,10 @@ open_type = QWidget()
 definitions = QWidget()
 pictures = QWidget()
 ltext = QWidget()
-set_creator_director = QWidget()
-set_creator_t2t = QWidget()
-set_creator_t2i = QWidget()
-set_creator_ltext = QWidget()
+editor_director = QWidget()
+editor_t2t = QWidget()
+editor_t2i = QWidget()
+editor_ltext = QWidget()
 
 # Landingpage Setup
 landingpage_ui = Ui_MainWindow()
@@ -419,22 +483,22 @@ pictures_ui.setupUi(pictures)
 ltext_ui = Ui_LText()
 ltext_ui.setupUi(ltext)
 # Creator Director Setup
-set_creator_director_ui = Ui_Set_Creator_Director()
-set_creator_director_ui.setupUi(set_creator_director)
+editor_director_ui = Ui_Set_Creator_Director()
+editor_director_ui.setupUi(editor_director)
 # Creator t2t Setup
-set_creator_t2t_ui = Ui_Set_Creator_T2T()
-set_creator_t2t_ui.setupUi(set_creator_t2t)
+editor_t2t_ui = Ui_Set_Creator_T2T()
+editor_t2t_ui.setupUi(editor_t2t)
 # Creator t2i Setup
-set_creator_t2i_ui = Ui_Set_Creator_T2I()
-set_creator_t2i_ui.setupUi(set_creator_t2i)
+editor_t2i_ui = Ui_Set_Creator_T2I()
+editor_t2i_ui.setupUi(editor_t2i)
 # Creator LText Setup
-set_creator_ltext_ui = Ui_Set_Creator_LText()
-set_creator_ltext_ui.setupUi(set_creator_ltext)
+editor_ltext_ui = Ui_Set_Creator_LText()
+editor_ltext_ui.setupUi(editor_ltext)
 
 # Landingpage Connects
 landingpage_ui.SettingsButton.clicked.connect(settings_open)
 landingpage_ui.OpenButton.clicked.connect(open_type_open)
-landingpage_ui.CreateButton.clicked.connect(set_creator_director_open)
+landingpage_ui.CreateButton.clicked.connect(editor_director_open)
 landingpage_ui.about_button.clicked.connect(about_open)
 # Settings Connects
 settings_ui.about_button.clicked.connect(about_open)
@@ -459,9 +523,15 @@ pictures_ui.term3_button.clicked.connect(lambda: pictures_term_button_clicked(pi
 # LText Connects
 ltext_ui.check_button.clicked.connect(ltext_check)
 # Creator Director Contents
-set_creator_director_ui.Add_T2T_Button.clicked.connect(set_creator_t2t_open)
-set_creator_director_ui.Add_T2I_Button.clicked.connect(set_creator_t2i_open)
-set_creator_director_ui.Add_LText_Button.clicked.connect(set_creator_ltext_open)
+editor_director_ui.Add_T2T_Button.clicked.connect(editor_t2t_open)
+editor_director_ui.Add_T2I_Button.clicked.connect(editor_t2i_open)
+editor_director_ui.Add_LText_Button.clicked.connect(editor_ltext_open)
+# T2T Editor Connects
+editor_t2t_ui.save_button.clicked.connect(editor_t2t_save)
+# T2I Editor Connects
+editor_t2i_ui.save_button.clicked.connect(editor_t2i_save)
+# LText Editor Connects
+editor_ltext_ui.save_button.clicked.connect(editor_ltext_save)
 
 window.show()
 app.exec()

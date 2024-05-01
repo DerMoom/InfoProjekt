@@ -6,78 +6,71 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>720</width>
-    <height>407</height>
+    <width>1199</width>
+    <height>834</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Pictures</string>
   </property>
-  <widget class="QLabel" name="header">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>10</y>
-     <width>720</width>
-     <height>60</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Pictures&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Connect the picture to its term&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="term1_button">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>104</y>
-     <width>200</width>
-     <height>50</height>
+     <x>815</x>
+     <y>150</y>
+     <width>370</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Term 1</string>
+    <string/>
    </property>
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="term2_button">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>213</y>
-     <width>200</width>
-     <height>50</height>
+     <x>815</x>
+     <y>374</y>
+     <width>370</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Term 1</string>
+    <string/>
    </property>
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="term3_button">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>322</y>
-     <width>200</width>
-     <height>50</height>
+     <x>815</x>
+     <y>598</y>
+     <width>370</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="toolTipDuration">
     <number>10</number>
    </property>
    <property name="text">
-    <string>Term 1</string>
+    <string/>
    </property>
    <property name="iconSize">
     <size>
@@ -88,14 +81,17 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="pic2_button">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>188</y>
-     <width>100</width>
-     <height>100</height>
+     <x>440</x>
+     <y>382</y>
+     <width>145</width>
+     <height>145</height>
     </rect>
    </property>
    <property name="text">
@@ -103,8 +99,8 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>90</width>
-     <height>90</height>
+     <width>140</width>
+     <height>140</height>
     </size>
    </property>
    <property name="checkable">
@@ -114,10 +110,10 @@
   <widget class="QPushButton" name="pic3_button">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>297</y>
-     <width>100</width>
-     <height>100</height>
+     <x>440</x>
+     <y>606</y>
+     <width>145</width>
+     <height>145</height>
     </rect>
    </property>
    <property name="text">
@@ -125,8 +121,8 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>90</width>
-     <height>90</height>
+     <width>140</width>
+     <height>140</height>
     </size>
    </property>
    <property name="checkable">
@@ -136,10 +132,10 @@
   <widget class="QPushButton" name="pic1_button">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>79</y>
-     <width>100</width>
-     <height>100</height>
+     <x>440</x>
+     <y>158</y>
+     <width>145</width>
+     <height>145</height>
     </rect>
    </property>
    <property name="text">
@@ -147,14 +143,384 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>90</width>
-     <height>90</height>
+     <width>140</width>
+     <height>140</height>
     </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="header_panel">
+   <property name="geometry">
+    <rect>
+     <x>-30</x>
+     <y>-30</y>
+     <width>1230</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 20 */
+
+position: absolute;
+width: 1230px;
+height: 100px;
+left: -30px;
+top: -30px;
+
+background: #56855E;
+border-radius: 30px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="header_text">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>280</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Pictures to Terms */
+
+position: absolute;
+width: 280px;
+height: 70px;
+left: 10px;
+top: 0px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Pictures to Terms</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="header_subtext">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>32</y>
+     <width>394</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Connect the pictures to the corresponding terms. */
+
+position: absolute;
+width: 394px;
+height: 12px;
+left: 290px;
+top: 36px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Connect the pictures to the corresponding terms.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="pic3_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>598</y>
+     <width>615</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 23 */
+
+position: absolute;
+width: 615px;
+height: 160px;
+left: -15px;
+top: 598px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="pic1_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>150</y>
+     <width>615</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 23 */
+
+position: absolute;
+width: 615px;
+height: 160px;
+left: -15px;
+top: 598px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="pic2_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>374</y>
+     <width>615</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 23 */
+
+position: absolute;
+width: 615px;
+height: 160px;
+left: -15px;
+top: 598px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term3_panel">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>598</y>
+     <width>415</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 26 */
+
+position: absolute;
+width: 415px;
+height: 160px;
+left: 800px;
+top: 598px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term2_panel">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>374</y>
+     <width>415</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 26 */
+
+position: absolute;
+width: 415px;
+height: 160px;
+left: 800px;
+top: 598px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term1_panel">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>150</y>
+     <width>415</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 26 */
+
+position: absolute;
+width: 415px;
+height: 160px;
+left: 800px;
+top: 598px;
+
+background: #56855E;
+border-radius: 15px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term1_text">
+   <property name="geometry">
+    <rect>
+     <x>815</x>
+     <y>150</y>
+     <width>370</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Term 1 */
+
+position: absolute;
+width: 370px;
+height: 160px;
+left: 815px;
+top: 150px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Term 1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term2_text">
+   <property name="geometry">
+    <rect>
+     <x>815</x>
+     <y>374</y>
+     <width>370</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Term 1 */
+
+position: absolute;
+width: 370px;
+height: 160px;
+left: 815px;
+top: 150px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Term 2</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="term3_text">
+   <property name="geometry">
+    <rect>
+     <x>815</x>
+     <y>598</y>
+     <width>370</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Term 1 */
+
+position: absolute;
+width: 370px;
+height: 160px;
+left: 815px;
+top: 150px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Term 3</string>
+   </property>
+  </widget>
+  <zorder>term2_panel</zorder>
+  <zorder>term3_panel</zorder>
+  <zorder>term1_panel</zorder>
+  <zorder>pic3_panel</zorder>
+  <zorder>pic2_panel</zorder>
+  <zorder>pic1_panel</zorder>
+  <zorder>header_panel</zorder>
+  <zorder>pic2_button</zorder>
+  <zorder>pic3_button</zorder>
+  <zorder>pic1_button</zorder>
+  <zorder>header_text</zorder>
+  <zorder>header_subtext</zorder>
+  <zorder>term2_text</zorder>
+  <zorder>term1_text</zorder>
+  <zorder>term1_button</zorder>
+  <zorder>term3_text</zorder>
+  <zorder>term3_button</zorder>
+  <zorder>term2_button</zorder>
  </widget>
  <resources/>
  <connections/>

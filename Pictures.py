@@ -12,44 +12,280 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Pictures(object):
     def setupUi(self, Pictures):
         Pictures.setObjectName("Pictures")
-        Pictures.resize(720, 407)
-        self.header = QtWidgets.QLabel(parent=Pictures)
-        self.header.setGeometry(QtCore.QRect(0, 10, 720, 60))
-        self.header.setObjectName("header")
+        Pictures.resize(1199, 834)
         self.term1_button = QtWidgets.QPushButton(parent=Pictures)
-        self.term1_button.setGeometry(QtCore.QRect(410, 104, 200, 50))
+        self.term1_button.setGeometry(QtCore.QRect(815, 150, 370, 160))
         self.term1_button.setToolTipDuration(10)
+        self.term1_button.setText("")
         self.term1_button.setCheckable(True)
+        self.term1_button.setFlat(True)
         self.term1_button.setObjectName("term1_button")
         self.term2_button = QtWidgets.QPushButton(parent=Pictures)
-        self.term2_button.setGeometry(QtCore.QRect(410, 213, 200, 50))
+        self.term2_button.setGeometry(QtCore.QRect(815, 374, 370, 160))
         self.term2_button.setToolTipDuration(10)
+        self.term2_button.setText("")
         self.term2_button.setCheckable(True)
+        self.term2_button.setFlat(True)
         self.term2_button.setObjectName("term2_button")
         self.term3_button = QtWidgets.QPushButton(parent=Pictures)
-        self.term3_button.setGeometry(QtCore.QRect(410, 322, 200, 50))
+        self.term3_button.setGeometry(QtCore.QRect(815, 598, 370, 160))
         self.term3_button.setToolTipDuration(10)
+        self.term3_button.setText("")
         self.term3_button.setIconSize(QtCore.QSize(200, 50))
         self.term3_button.setCheckable(True)
+        self.term3_button.setFlat(True)
         self.term3_button.setObjectName("term3_button")
         self.pic2_button = QtWidgets.QPushButton(parent=Pictures)
-        self.pic2_button.setGeometry(QtCore.QRect(110, 188, 100, 100))
+        self.pic2_button.setGeometry(QtCore.QRect(440, 382, 145, 145))
         self.pic2_button.setText("")
-        self.pic2_button.setIconSize(QtCore.QSize(90, 90))
+        self.pic2_button.setIconSize(QtCore.QSize(140, 140))
         self.pic2_button.setCheckable(True)
         self.pic2_button.setObjectName("pic2_button")
         self.pic3_button = QtWidgets.QPushButton(parent=Pictures)
-        self.pic3_button.setGeometry(QtCore.QRect(110, 297, 100, 100))
+        self.pic3_button.setGeometry(QtCore.QRect(440, 606, 145, 145))
         self.pic3_button.setText("")
-        self.pic3_button.setIconSize(QtCore.QSize(90, 90))
+        self.pic3_button.setIconSize(QtCore.QSize(140, 140))
         self.pic3_button.setCheckable(True)
         self.pic3_button.setObjectName("pic3_button")
         self.pic1_button = QtWidgets.QPushButton(parent=Pictures)
-        self.pic1_button.setGeometry(QtCore.QRect(110, 79, 100, 100))
+        self.pic1_button.setGeometry(QtCore.QRect(440, 158, 145, 145))
         self.pic1_button.setText("")
-        self.pic1_button.setIconSize(QtCore.QSize(90, 90))
+        self.pic1_button.setIconSize(QtCore.QSize(140, 140))
         self.pic1_button.setCheckable(True)
         self.pic1_button.setObjectName("pic1_button")
+        self.header_panel = QtWidgets.QLabel(parent=Pictures)
+        self.header_panel.setGeometry(QtCore.QRect(-30, -30, 1230, 100))
+        self.header_panel.setStyleSheet("/* Rectangle 20 */\n"
+"\n"
+"position: absolute;\n"
+"width: 1230px;\n"
+"height: 100px;\n"
+"left: -30px;\n"
+"top: -30px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 30px;\n"
+"")
+        self.header_panel.setText("")
+        self.header_panel.setObjectName("header_panel")
+        self.header_text = QtWidgets.QLabel(parent=Pictures)
+        self.header_text.setGeometry(QtCore.QRect(10, 0, 280, 70))
+        self.header_text.setStyleSheet("/* Pictures to Terms */\n"
+"\n"
+"position: absolute;\n"
+"width: 280px;\n"
+"height: 70px;\n"
+"left: 10px;\n"
+"top: 0px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #FFFFFF;\n"
+"\n"
+"")
+        self.header_text.setObjectName("header_text")
+        self.header_subtext = QtWidgets.QLabel(parent=Pictures)
+        self.header_subtext.setGeometry(QtCore.QRect(290, 32, 394, 16))
+        self.header_subtext.setStyleSheet("/* Connect the pictures to the corresponding terms. */\n"
+"\n"
+"position: absolute;\n"
+"width: 394px;\n"
+"height: 12px;\n"
+"left: 290px;\n"
+"top: 36px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 13px;\n"
+"line-height: 16px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"")
+        self.header_subtext.setObjectName("header_subtext")
+        self.pic3_panel = QtWidgets.QLabel(parent=Pictures)
+        self.pic3_panel.setGeometry(QtCore.QRect(-15, 598, 615, 160))
+        self.pic3_panel.setStyleSheet("/* Rectangle 23 */\n"
+"\n"
+"position: absolute;\n"
+"width: 615px;\n"
+"height: 160px;\n"
+"left: -15px;\n"
+"top: 598px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.pic3_panel.setText("")
+        self.pic3_panel.setObjectName("pic3_panel")
+        self.pic1_panel = QtWidgets.QLabel(parent=Pictures)
+        self.pic1_panel.setGeometry(QtCore.QRect(-15, 150, 615, 160))
+        self.pic1_panel.setStyleSheet("/* Rectangle 23 */\n"
+"\n"
+"position: absolute;\n"
+"width: 615px;\n"
+"height: 160px;\n"
+"left: -15px;\n"
+"top: 598px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.pic1_panel.setText("")
+        self.pic1_panel.setObjectName("pic1_panel")
+        self.pic2_panel = QtWidgets.QLabel(parent=Pictures)
+        self.pic2_panel.setGeometry(QtCore.QRect(-15, 374, 615, 160))
+        self.pic2_panel.setStyleSheet("/* Rectangle 23 */\n"
+"\n"
+"position: absolute;\n"
+"width: 615px;\n"
+"height: 160px;\n"
+"left: -15px;\n"
+"top: 598px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.pic2_panel.setText("")
+        self.pic2_panel.setObjectName("pic2_panel")
+        self.term3_panel = QtWidgets.QLabel(parent=Pictures)
+        self.term3_panel.setGeometry(QtCore.QRect(800, 598, 415, 160))
+        self.term3_panel.setStyleSheet("/* Rectangle 26 */\n"
+"\n"
+"position: absolute;\n"
+"width: 415px;\n"
+"height: 160px;\n"
+"left: 800px;\n"
+"top: 598px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.term3_panel.setText("")
+        self.term3_panel.setObjectName("term3_panel")
+        self.term2_panel = QtWidgets.QLabel(parent=Pictures)
+        self.term2_panel.setGeometry(QtCore.QRect(800, 374, 415, 160))
+        self.term2_panel.setStyleSheet("/* Rectangle 26 */\n"
+"\n"
+"position: absolute;\n"
+"width: 415px;\n"
+"height: 160px;\n"
+"left: 800px;\n"
+"top: 598px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.term2_panel.setText("")
+        self.term2_panel.setObjectName("term2_panel")
+        self.term1_panel = QtWidgets.QLabel(parent=Pictures)
+        self.term1_panel.setGeometry(QtCore.QRect(800, 150, 415, 160))
+        self.term1_panel.setStyleSheet("/* Rectangle 26 */\n"
+"\n"
+"position: absolute;\n"
+"width: 415px;\n"
+"height: 160px;\n"
+"left: 800px;\n"
+"top: 598px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.term1_panel.setText("")
+        self.term1_panel.setObjectName("term1_panel")
+        self.term1_text = QtWidgets.QLabel(parent=Pictures)
+        self.term1_text.setGeometry(QtCore.QRect(815, 150, 370, 160))
+        self.term1_text.setStyleSheet("/* Term 1 */\n"
+"\n"
+"position: absolute;\n"
+"width: 370px;\n"
+"height: 160px;\n"
+"left: 815px;\n"
+"top: 150px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"")
+        self.term1_text.setObjectName("term1_text")
+        self.term2_text = QtWidgets.QLabel(parent=Pictures)
+        self.term2_text.setGeometry(QtCore.QRect(815, 374, 370, 160))
+        self.term2_text.setStyleSheet("/* Term 1 */\n"
+"\n"
+"position: absolute;\n"
+"width: 370px;\n"
+"height: 160px;\n"
+"left: 815px;\n"
+"top: 150px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"")
+        self.term2_text.setObjectName("term2_text")
+        self.term3_text = QtWidgets.QLabel(parent=Pictures)
+        self.term3_text.setGeometry(QtCore.QRect(815, 598, 370, 160))
+        self.term3_text.setStyleSheet("/* Term 1 */\n"
+"\n"
+"position: absolute;\n"
+"width: 370px;\n"
+"height: 160px;\n"
+"left: 815px;\n"
+"top: 150px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"")
+        self.term3_text.setObjectName("term3_text")
+        self.term2_panel.raise_()
+        self.term3_panel.raise_()
+        self.term1_panel.raise_()
+        self.pic3_panel.raise_()
+        self.pic2_panel.raise_()
+        self.pic1_panel.raise_()
+        self.header_panel.raise_()
+        self.pic2_button.raise_()
+        self.pic3_button.raise_()
+        self.pic1_button.raise_()
+        self.header_text.raise_()
+        self.header_subtext.raise_()
+        self.term2_text.raise_()
+        self.term1_text.raise_()
+        self.term1_button.raise_()
+        self.term3_text.raise_()
+        self.term3_button.raise_()
+        self.term2_button.raise_()
 
         self.retranslateUi(Pictures)
         QtCore.QMetaObject.connectSlotsByName(Pictures)
@@ -57,7 +293,8 @@ class Ui_Pictures(object):
     def retranslateUi(self, Pictures):
         _translate = QtCore.QCoreApplication.translate
         Pictures.setWindowTitle(_translate("Pictures", "Pictures"))
-        self.header.setText(_translate("Pictures", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:700;\">Pictures</span></p><p align=\"center\">Connect the picture to its term</p><p align=\"center\"><br/></p></body></html>"))
-        self.term1_button.setText(_translate("Pictures", "Term 1"))
-        self.term2_button.setText(_translate("Pictures", "Term 1"))
-        self.term3_button.setText(_translate("Pictures", "Term 1"))
+        self.header_text.setText(_translate("Pictures", "Pictures to Terms"))
+        self.header_subtext.setText(_translate("Pictures", "Connect the pictures to the corresponding terms."))
+        self.term1_text.setText(_translate("Pictures", "Term 1"))
+        self.term2_text.setText(_translate("Pictures", "Term 2"))
+        self.term3_text.setText(_translate("Pictures", "Term 3"))

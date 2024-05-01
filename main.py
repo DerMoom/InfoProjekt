@@ -88,7 +88,7 @@ def pictures_open():
 
 def ltext_open():
     global set_name
-    set_name = str(QFileDialog.getOpenFileName(open_type, "Select File", "sets/LText", filter="*.csv"))
+    set_name = str(QFileDialog.getOpenFileName(open_type, "Select File", "sets/LText", filter="*.txt"))
     ltext_init()
 
 
@@ -171,29 +171,38 @@ def pictures_init():
         pic2 = items[shuffle[1]]
         pic3 = items[shuffle[2]]
 
-        pictures_ui.term1_button.setText(data[def1][0])  # Assigning chosen text to Buttons
+        pictures_ui.term1_text.setText(data[def1][0])  # Assigning chosen text to Buttons
         pictures_ui.term1_button.setToolTip(str(def1))  # Assigning Index as Tooltip for later use
         pictures_ui.term1_button.setVisible(True)  # In case of refresh
+        pictures_ui.term1_text.setVisible(True)
+        pictures_ui.term1_panel.setVisible(True)
         pictures_ui.term1_button.setChecked(False)  # In case of refresh
-        pictures_ui.pic1_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic1][1]) + ".jpg"))  # Assign Pics
+        pictures_ui.pic1_button.setIcon(QIcon(str(data[pic1][1]) + ".jpg"))  # Assign Pics
         pictures_ui.pic1_button.setToolTip(str(pic1))
         pictures_ui.pic1_button.setVisible(True)
+        pictures_ui.pic1_panel.setVisible(True)
         pictures_ui.pic1_button.setChecked(False)
-        pictures_ui.term2_button.setText(data[def2][0])
+        pictures_ui.term2_text.setText(data[def2][0])
         pictures_ui.term2_button.setToolTip(str(def2))
+        pictures_ui.term2_text.setVisible(True)
+        pictures_ui.term2_panel.setVisible(True)
         pictures_ui.term2_button.setVisible(True)
         pictures_ui.term2_button.setChecked(False)
-        pictures_ui.pic2_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic2][1]) + ".jpg"))
+        pictures_ui.pic2_button.setIcon(QIcon(str(data[pic2][1]) + ".jpg"))
         pictures_ui.pic2_button.setToolTip(str(pic2))
         pictures_ui.pic2_button.setVisible(True)
+        pictures_ui.pic2_panel.setVisible(True)
         pictures_ui.pic2_button.setChecked(False)
-        pictures_ui.term3_button.setText(data[def3][0])
+        pictures_ui.term3_text.setText(data[def3][0])
         pictures_ui.term3_button.setToolTip(str(def3))
         pictures_ui.term3_button.setVisible(True)
+        pictures_ui.term3_text.setVisible(True)
+        pictures_ui.term3_panel.setVisible(True)
         pictures_ui.term3_button.setChecked(False)
-        pictures_ui.pic3_button.setIcon(QIcon(set_name + "/pics/" + str(data[pic3][1]) + ".jpg"))
+        pictures_ui.pic3_button.setIcon(QIcon(str(data[pic3][1]) + ".jpg"))
         pictures_ui.pic3_button.setToolTip(str(pic3))
         pictures_ui.pic3_button.setVisible(True)
+        pictures_ui.pic3_panel.setVisible(True)
         pictures_ui.pic3_button.setChecked(False)
 
         pictures.show()  # Show Window
@@ -216,7 +225,10 @@ def pictures_pic_button_clicked(index, number):
             pictures_term_button_is_clicked = None
             pictures_pic_button_is_clicked = None
             getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_button").setVisible(False)
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_text").setVisible(False)
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_panel").setVisible(False)
             getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_button").setVisible(False)
+            getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_panel").setVisible(False)
             correct_counter = correct_counter + 1
             if correct_counter == 3:
                 pictures_init()
@@ -243,10 +255,11 @@ def pictures_term_button_clicked(index, number):
             # (are corresponding)
             pictures_term_button_is_clicked = None  # Reset Index Vars
             pictures_pic_button_is_clicked = None
-            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_button").setVisible(False)  # Hiding
-            # Buttons
-            # for User Feedback
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_button").setVisible(False)
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_text").setVisible(False)
+            getattr(pictures_ui, "term" + str(pictures_term_name_number) + "_panel").setVisible(False)
             getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_button").setVisible(False)
+            getattr(pictures_ui, "pic" + str(pictures_pic_name_number) + "_panel").setVisible(False)
             correct_counter = correct_counter + 1  # Counter Count-Up
             if correct_counter == 3:  # Check if time for refresh
                 pictures_init()  # Run Refresh function
@@ -395,10 +408,12 @@ def ltext_init():
     global text_list
     global word_list
     try:
-        index = csv_to_lists(set_name)
-        random_num = random_even_number(0, len(index)-1)
-        text_list = index[random_num][0].split()
-        word_list = index[random_num + 1][0].split(", ")
+        o = open(set_name.strip("()").split(",")[0].strip("'"), "r")
+        content = o.readlines()
+        o.close()
+        random_num = random_even_number(0, len(content)-1)
+        text_list = content[random_num].split()
+        word_list = content[random_num + 1].strip().split(", ")
 
         for i in range(0, len(text_list)):
             for j in range(0, len(word_list)):
@@ -446,6 +461,11 @@ def random_even_number(start, end):
         end -= 1
     num = random.randrange(start, end + 1, 2)
     return num
+
+
+def test():
+    print("Test")
+    pass
 
 
 app = QApplication([])

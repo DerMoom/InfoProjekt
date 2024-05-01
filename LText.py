@@ -12,17 +12,185 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_LText(object):
     def setupUi(self, LText):
         LText.setObjectName("LText")
-        LText.resize(510, 283)
+        LText.resize(1000, 556)
         self.text_area = QtWidgets.QTextEdit(parent=LText)
-        self.text_area.setGeometry(QtCore.QRect(10, 10, 491, 171))
+        self.text_area.setGeometry(QtCore.QRect(120, 115, 600, 245))
+        self.text_area.setStyleSheet("/* Text */\n"
+"\n"
+"position: absolute;\n"
+"width: 600px;\n"
+"height: 245px;\n"
+"left: 120px;\n"
+"top: 115px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 20px;\n"
+"line-height: 25px;\n"
+"\n"
+"background-color: 56855E;\n"
+"\n"
+"")
         self.text_area.setReadOnly(True)
+        self.text_area.setOverwriteMode(False)
         self.text_area.setObjectName("text_area")
         self.words_input = QtWidgets.QLineEdit(parent=LText)
-        self.words_input.setGeometry(QtCore.QRect(10, 210, 491, 22))
+        self.words_input.setGeometry(QtCore.QRect(120, 439, 745, 30))
+        self.words_input.setStyleSheet("/* Input */\n"
+"\n"
+"position: absolute;\n"
+"width: 745px;\n"
+"height: 30px;\n"
+"left: 120px;\n"
+"top: 439px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 13px;\n"
+"line-height: 16px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"text-align: right;\n"
+"\n"
+"\n"
+"")
+        self.words_input.setFrame(True)
+        self.words_input.setClearButtonEnabled(False)
         self.words_input.setObjectName("words_input")
         self.check_button = QtWidgets.QPushButton(parent=LText)
-        self.check_button.setGeometry(QtCore.QRect(10, 250, 491, 24))
+        self.check_button.setGeometry(QtCore.QRect(120, 483, 745, 30))
+        self.check_button.setStyleSheet("/* Rectangle 31 */\n"
+"\n"
+"position: absolute;\n"
+"width: 745px;\n"
+"height: 30px;\n"
+"left: 120px;\n"
+"top: 483px;\n"
+"\n"
+"background: #789D7E;\n"
+"border-radius: 5px;\n"
+"\n"
+"/* Check */\n"
+"\n"
+"position: absolute;\n"
+"width: 745px;\n"
+"height: 30px;\n"
+"left: 120px;\n"
+"top: 483px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 20px;\n"
+"line-height: 25px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"text-align: center;\n"
+"\n"
+"color: #FFFFFF;\n"
+"\n"
+"\n"
+"")
         self.check_button.setObjectName("check_button")
+        self.header_panel = QtWidgets.QLabel(parent=LText)
+        self.header_panel.setGeometry(QtCore.QRect(-30, -30, 1030, 100))
+        self.header_panel.setStyleSheet("/* Rectangle 20 */\n"
+"\n"
+"position: absolute;\n"
+"width: 1030px;\n"
+"height: 100px;\n"
+"left: -30px;\n"
+"top: -30px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 30px;\n"
+"")
+        self.header_panel.setText("")
+        self.header_panel.setObjectName("header_panel")
+        self.header_text = QtWidgets.QLabel(parent=LText)
+        self.header_text.setGeometry(QtCore.QRect(10, 0, 150, 70))
+        self.header_text.setStyleSheet("/* Gap-Text */\n"
+"\n"
+"position: absolute;\n"
+"width: 150px;\n"
+"height: 70px;\n"
+"left: 10px;\n"
+"top: 0px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 32px;\n"
+"line-height: 40px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #FFFFFF;\n"
+"\n"
+"")
+        self.header_text.setObjectName("header_text")
+        self.header_subtext = QtWidgets.QLabel(parent=LText)
+        self.header_subtext.setGeometry(QtCore.QRect(160, 33, 330, 16))
+        self.header_subtext.setStyleSheet("/* Fill in the missing words. */\n"
+"\n"
+"position: absolute;\n"
+"width: 329.93px;\n"
+"height: 12px;\n"
+"left: 160px;\n"
+"top: 36px;\n"
+"\n"
+"font-family: \'Atkinson Hyperlegible\';\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"font-size: 13px;\n"
+"line-height: 16px;\n"
+"display: flex;\n"
+"align-items: center;\n"
+"\n"
+"color: #E3DBA4;\n"
+"\n"
+"")
+        self.header_subtext.setObjectName("header_subtext")
+        self.text_panel = QtWidgets.QLabel(parent=LText)
+        self.text_panel.setGeometry(QtCore.QRect(105, 100, 910, 275))
+        self.text_panel.setStyleSheet("/* Rectangle 27 */\n"
+"\n"
+"position: absolute;\n"
+"width: 910px;\n"
+"height: 275px;\n"
+"left: 105px;\n"
+"top: 100px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.text_panel.setText("")
+        self.text_panel.setObjectName("text_panel")
+        self.label = QtWidgets.QLabel(parent=LText)
+        self.label.setGeometry(QtCore.QRect(-18, 426, 900, 100))
+        self.label.setStyleSheet("/* Rectangle 24 */\n"
+"\n"
+"position: absolute;\n"
+"width: 900px;\n"
+"height: 100px;\n"
+"left: -18px;\n"
+"top: 426px;\n"
+"\n"
+"background: #56855E;\n"
+"border-radius: 15px;\n"
+"")
+        self.label.setText("")
+        self.label.setObjectName("label")
+        self.label.raise_()
+        self.text_panel.raise_()
+        self.text_area.raise_()
+        self.words_input.raise_()
+        self.check_button.raise_()
+        self.header_panel.raise_()
+        self.header_text.raise_()
+        self.header_subtext.raise_()
 
         self.retranslateUi(LText)
         QtCore.QMetaObject.connectSlotsByName(LText)
@@ -36,6 +204,9 @@ class Ui_LText(object):
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:\'Segoe UI\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:\'Atkinson Hyperlegible\'; font-size:20px; font-weight:700; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.words_input.setPlaceholderText(_translate("LText", "word, word, ..."))
         self.check_button.setText(_translate("LText", "Check"))
+        self.header_text.setText(_translate("LText", "Gap-Text"))
+        self.header_subtext.setText(_translate("LText", "Fill in the missing words."))

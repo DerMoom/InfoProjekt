@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'Set_Creator_Director.ui'
+# Form implementation generated from reading ui file 'editor_Director.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #

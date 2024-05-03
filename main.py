@@ -1,4 +1,5 @@
 import csv
+import os
 import random
 
 from PyQt6.QtGui import QIcon
@@ -11,7 +12,8 @@ from MainWindow import Ui_MainWindow
 from Open_Type import Ui_Open_Type
 from Pictures import Ui_Pictures
 from Settings import Ui_SettingsWindow
-from Set_Creator_Director import Ui_Set_Creator_Director  # Importiere alle neuen UI-Dateien
+from creator import Ui_Creator
+from editor_Director import Ui_Set_Creator_Director  # Importiere alle neuen UI-Dateien
 from editor_T2T import Ui_Set_Creator_T2T  # für späteres Nutzen, Verknüpfung mit
 from editor_T2I import Ui_Set_Creator_T2I  # den passenden Buttons muss noch gemacht
 from editor_LText import Ui_Set_Creator_LText  # werden, Versuche ich noch zu machen (22.03. 9:13)
@@ -46,6 +48,11 @@ def about_open():
 
 def open_type_open():
     open_type.show()
+    pass
+
+
+def creator_open():
+    creator.show()
     pass
 
 
@@ -90,6 +97,29 @@ def ltext_open():
     global set_name
     set_name = str(QFileDialog.getOpenFileName(open_type, "Select File", "sets/LText", filter="*.txt"))
     ltext_init()
+
+
+def creator_create():
+    if creator_ui.type_input.currentIndex() == 0:
+        path = "sets/T2T/" + creator_ui.subject_input.text() + "/"
+        if not os.path.exists(path):
+            os.mkdir(path, mode=0o777)
+        with open(path + creator_ui.name_input.text() + ".csv", "a+"):
+            pass
+    if creator_ui.type_input.currentIndex() == 1:
+        path = "sets/T2I/" + creator_ui.subject_input.text() + "/"
+        if not os.path.exists(path):
+            os.mkdir(path, mode=0o777)
+        with open(path + creator_ui.name_input.text() + ".csv", "a+"):
+            pass
+    if creator_ui.type_input.currentIndex() == 2:
+        path = "sets/LText/" + creator_ui.subject_input.text() + "/"
+        if not os.path.exists(path):
+            os.mkdir(path, mode=0o777)
+        with open(path + creator_ui.name_input.text() + ".txt", "a+"):
+            pass
+    creator.close()
+    pass
 
 
 def editor_t2t_init():
@@ -480,6 +510,7 @@ editor_director = QWidget()
 editor_t2t = QWidget()
 editor_t2i = QWidget()
 editor_ltext = QWidget()
+creator = QWidget()
 
 # Landingpage Setup
 landingpage_ui = Ui_MainWindow()
@@ -502,30 +533,36 @@ pictures_ui.setupUi(pictures)
 # LText Setup
 ltext_ui = Ui_LText()
 ltext_ui.setupUi(ltext)
-# Creator Director Setup
+# Editor Director Setup
 editor_director_ui = Ui_Set_Creator_Director()
 editor_director_ui.setupUi(editor_director)
-# Creator t2t Setup
+# T2T Editor Setup
 editor_t2t_ui = Ui_Set_Creator_T2T()
 editor_t2t_ui.setupUi(editor_t2t)
-# Creator t2i Setup
+# T2I Editor Setup
 editor_t2i_ui = Ui_Set_Creator_T2I()
 editor_t2i_ui.setupUi(editor_t2i)
-# Creator LText Setup
+# LText Editor Setup
 editor_ltext_ui = Ui_Set_Creator_LText()
 editor_ltext_ui.setupUi(editor_ltext)
+# Creator Setup
+creator_ui = Ui_Creator()
+creator_ui.setupUi(creator)
 
 # Landingpage Connects
 landingpage_ui.SettingsButton.clicked.connect(settings_open)
 landingpage_ui.OpenButton.clicked.connect(open_type_open)
 landingpage_ui.CreateButton.clicked.connect(editor_director_open)
 landingpage_ui.about_button.clicked.connect(about_open)
+landingpage_ui.actionCreate_Set.triggered.connect(creator_open)
 # Settings Connects
 settings_ui.about_button.clicked.connect(about_open)
 # Open Type Select Connects
 open_type_ui.T2T_Button.clicked.connect(definitions_open)
 open_type_ui.P2T_Button.clicked.connect(pictures_open)
 open_type_ui.LText_Button.clicked.connect(ltext_open)
+# Creator Connects
+creator_ui.gen_button.clicked.connect(creator_create)
 # Definitions Connects
 definitions_ui.def1_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def1_button.toolTip(), 1))
 definitions_ui.def2_button.clicked.connect(lambda: definitions_def_button_clicked(definitions_ui.def2_button.toolTip(), 2))

@@ -223,7 +223,10 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.actionExit = QtGui.QAction(parent=MainWindow)
         self.actionExit.setObjectName("actionExit")
+        self.actionCreate_Set = QtGui.QAction(parent=MainWindow)
+        self.actionCreate_Set.setObjectName("actionCreate_Set")
         self.menuFile.addAction(self.actionExit)
+        self.menuEdit.addAction(self.actionCreate_Set)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
 
@@ -243,3 +246,4 @@ class Ui_MainWindow(object):
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
+        self.actionCreate_Set.setText(_translate("MainWindow", "Create Set"))

@@ -405,6 +405,7 @@ color: #E3DBA4;
     <property name="title">
      <string>Edit</string>
     </property>
+    <addaction name="actionCreate_Set"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -413,6 +414,11 @@ color: #E3DBA4;
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionCreate_Set">
+   <property name="text">
+    <string>Create Set</string>
    </property>
   </action>
  </widget>

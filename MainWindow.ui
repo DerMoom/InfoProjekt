@@ -49,7 +49,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="SettingsButton">
+   <widget class="QPushButton" name="about_Button">
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -163,25 +163,6 @@ color: #E3DBA4;
      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
     </property>
    </widget>
-   <widget class="QLabel" name="about_panel">
-    <property name="geometry">
-     <rect>
-      <x>930</x>
-      <y>20</y>
-      <width>50</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>img/about.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="create_text">
     <property name="geometry">
      <rect>
@@ -253,7 +234,7 @@ border-radius: 20px;
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="settings_panel">
+   <widget class="QLabel" name="about_panel">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -306,23 +287,7 @@ color: #E3DBA4;
      <string>Open Set</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="about_button">
-    <property name="geometry">
-     <rect>
-      <x>930</x>
-      <y>20</y>
-      <width>50</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="settings_text">
+   <widget class="QLabel" name="about_text">
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -354,7 +319,7 @@ color: #E3DBA4;
 </string>
     </property>
     <property name="text">
-     <string>Settings</string>
+     <string>About Us</string>
     </property>
    </widget>
    <widget class="QLabel" name="logo_panel">
@@ -376,14 +341,12 @@ color: #E3DBA4;
    <zorder>header_panel</zorder>
    <zorder>Header_label</zorder>
    <zorder>authors_label</zorder>
-   <zorder>about_panel</zorder>
    <zorder>create_panel</zorder>
-   <zorder>settings_panel</zorder>
-   <zorder>about_button</zorder>
+   <zorder>about_panel</zorder>
    <zorder>create_text</zorder>
-   <zorder>settings_text</zorder>
+   <zorder>about_text</zorder>
    <zorder>CreateButton</zorder>
-   <zorder>SettingsButton</zorder>
+   <zorder>about_Button</zorder>
    <zorder>logo_panel</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">

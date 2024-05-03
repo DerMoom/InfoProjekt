@@ -26,11 +26,11 @@ class Ui_MainWindow(object):
         self.CreateButton.setText("")
         self.CreateButton.setFlat(True)
         self.CreateButton.setObjectName("CreateButton")
-        self.SettingsButton = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.SettingsButton.setGeometry(QtCore.QRect(410, 551, 580, 50))
-        self.SettingsButton.setText("")
-        self.SettingsButton.setFlat(True)
-        self.SettingsButton.setObjectName("SettingsButton")
+        self.about_Button = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.about_Button.setGeometry(QtCore.QRect(410, 551, 580, 50))
+        self.about_Button.setText("")
+        self.about_Button.setFlat(True)
+        self.about_Button.setObjectName("about_Button")
         self.header_panel = QtWidgets.QLabel(parent=self.centralwidget)
         self.header_panel.setGeometry(QtCore.QRect(-50, -50, 1050, 242))
         self.header_panel.setStyleSheet("background: #56855E;\n"
@@ -90,12 +90,6 @@ class Ui_MainWindow(object):
 "")
         self.authors_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft)
         self.authors_label.setObjectName("authors_label")
-        self.about_panel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.about_panel.setGeometry(QtCore.QRect(930, 20, 50, 50))
-        self.about_panel.setText("")
-        self.about_panel.setPixmap(QtGui.QPixmap("img/about.png"))
-        self.about_panel.setScaledContents(True)
-        self.about_panel.setObjectName("about_panel")
         self.create_text = QtWidgets.QLabel(parent=self.centralwidget)
         self.create_text.setGeometry(QtCore.QRect(410, 421, 580, 50))
         self.create_text.setStyleSheet("/* Create Set */\n"
@@ -133,13 +127,13 @@ class Ui_MainWindow(object):
 "")
         self.create_panel.setText("")
         self.create_panel.setObjectName("create_panel")
-        self.settings_panel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.settings_panel.setGeometry(QtCore.QRect(400, 526, 640, 100))
-        self.settings_panel.setStyleSheet("background: #56855E;\n"
+        self.about_panel = QtWidgets.QLabel(parent=self.centralwidget)
+        self.about_panel.setGeometry(QtCore.QRect(400, 526, 640, 100))
+        self.about_panel.setStyleSheet("background: #56855E;\n"
 "border-radius: 20px;\n"
 "")
-        self.settings_panel.setText("")
-        self.settings_panel.setObjectName("settings_panel")
+        self.about_panel.setText("")
+        self.about_panel.setObjectName("about_panel")
         self.open_text = QtWidgets.QLabel(parent=self.centralwidget)
         self.open_text.setGeometry(QtCore.QRect(410, 291, 580, 50))
         self.open_text.setStyleSheet("/* Open Set */\n"
@@ -163,14 +157,9 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.open_text.setObjectName("open_text")
-        self.about_button = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.about_button.setGeometry(QtCore.QRect(930, 20, 50, 50))
-        self.about_button.setText("")
-        self.about_button.setFlat(True)
-        self.about_button.setObjectName("about_button")
-        self.settings_text = QtWidgets.QLabel(parent=self.centralwidget)
-        self.settings_text.setGeometry(QtCore.QRect(410, 551, 580, 50))
-        self.settings_text.setStyleSheet("/* Create Set */\n"
+        self.about_text = QtWidgets.QLabel(parent=self.centralwidget)
+        self.about_text.setGeometry(QtCore.QRect(410, 551, 580, 50))
+        self.about_text.setStyleSheet("/* Create Set */\n"
 "\n"
 "position: absolute;\n"
 "width: 580px;\n"
@@ -190,7 +179,7 @@ class Ui_MainWindow(object):
 "color: #E3DBA4;\n"
 "\n"
 "")
-        self.settings_text.setObjectName("settings_text")
+        self.about_text.setObjectName("about_text")
         self.logo_panel = QtWidgets.QLabel(parent=self.centralwidget)
         self.logo_panel.setGeometry(QtCore.QRect(30, 266, 316, 360))
         self.logo_panel.setObjectName("logo_panel")
@@ -200,14 +189,12 @@ class Ui_MainWindow(object):
         self.header_panel.raise_()
         self.Header_label.raise_()
         self.authors_label.raise_()
-        self.about_panel.raise_()
         self.create_panel.raise_()
-        self.settings_panel.raise_()
-        self.about_button.raise_()
+        self.about_panel.raise_()
         self.create_text.raise_()
-        self.settings_text.raise_()
+        self.about_text.raise_()
         self.CreateButton.raise_()
-        self.SettingsButton.raise_()
+        self.about_Button.raise_()
         self.logo_panel.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
@@ -241,7 +228,7 @@ class Ui_MainWindow(object):
         self.authors_label.setText(_translate("MainWindow", "by Moritz & Thor"))
         self.create_text.setText(_translate("MainWindow", "Edit Set"))
         self.open_text.setText(_translate("MainWindow", "Open Set"))
-        self.settings_text.setText(_translate("MainWindow", "Settings"))
+        self.about_text.setText(_translate("MainWindow", "About Us"))
         self.logo_panel.setText(_translate("MainWindow", "mascot here"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))

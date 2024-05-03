@@ -6,39 +6,317 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>210</height>
+    <width>609</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>About Us</string>
   </property>
-  <widget class="QLabel" name="header_label">
+  <widget class="QLabel" name="moritz_pic">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>10</y>
-     <width>400</width>
-     <height>30</height>
+     <x>20</x>
+     <y>102</y>
+     <width>120</width>
+     <height>120</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;About Us&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>img/moritz.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="mainbody_label">
+  <widget class="QLabel" name="thor_pic">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>50</y>
-     <width>400</width>
-     <height>150</height>
+     <x>20</x>
+     <y>267</y>
+     <width>120</width>
+     <height>120</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This project was created for a school project by,&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Moritz Jüttner&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Thor Poser&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;with the intent of making learning a fun and rewarding experience&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>img/thor.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="header_panel">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>-20</y>
+     <width>629</width>
+     <height>89</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 32 */
+
+position: absolute;
+width: 629px;
+height: 89px;
+left: -20px;
+top: -20px;
+
+background: #56855E;
+border-radius: 20px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="header_text">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>609</width>
+     <height>69</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* About Us */
+
+position: absolute;
+width: 609px;
+height: 69px;
+left: 0px;
+top: 0px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+</string>
+   </property>
+   <property name="text">
+    <string>About Us</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="moritz_panel">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>102</y>
+     <width>609</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 34 */
+
+position: absolute;
+width: 609px;
+height: 120px;
+left: -20px;
+top: 102px;
+
+background: #56855E;
+border-radius: 20px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="thor_panel">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>267</y>
+     <width>609</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 34 */
+
+position: absolute;
+width: 609px;
+height: 120px;
+left: -20px;
+top: 102px;
+
+background: #56855E;
+border-radius: 20px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="moritz_header">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>107</y>
+     <width>409</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Moritz Jüttner */
+
+position: absolute;
+width: 409px;
+height: 31px;
+left: 160px;
+top: 107px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+display: flex;
+align-items: center;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Moritz Jüttner</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="thor_header">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>272</y>
+     <width>409</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Moritz Jüttner */
+
+position: absolute;
+width: 409px;
+height: 31px;
+left: 160px;
+top: 107px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+display: flex;
+align-items: center;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Thor Poser</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="moritz_desc">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>139</y>
+     <width>409</width>
+     <height>78</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Programmer Project Manager professional Procrastinator */
+
+position: absolute;
+width: 409px;
+height: 78px;
+left: 160px;
+top: 139px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+</string>
+   </property>
+   <property name="text">
+    <string>- Programmer
+- Project Manager
+- professional Procrastinator</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="thor_desc">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>304</y>
+     <width>409</width>
+     <height>78</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Programmer Project Manager professional Procrastinator */
+
+position: absolute;
+width: 409px;
+height: 78px;
+left: 160px;
+top: 139px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+</string>
+   </property>
+   <property name="text">
+    <string>- Graphics
+- Design
+- Emotional Support</string>
+   </property>
+  </widget>
+  <zorder>thor_panel</zorder>
+  <zorder>moritz_panel</zorder>
+  <zorder>moritz_pic</zorder>
+  <zorder>thor_pic</zorder>
+  <zorder>header_panel</zorder>
+  <zorder>header_text</zorder>
+  <zorder>moritz_header</zorder>
+  <zorder>thor_header</zorder>
+  <zorder>moritz_desc</zorder>
+  <zorder>thor_desc</zorder>
  </widget>
  <resources/>
  <connections/>

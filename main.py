@@ -11,9 +11,8 @@ from LText import Ui_LText
 from MainWindow import Ui_MainWindow
 from Open_Type import Ui_Open_Type
 from Pictures import Ui_Pictures
-from Settings import Ui_SettingsWindow
 from creator import Ui_Creator
-from editor_Director import Ui_Set_Creator_Director  # Importiere alle neuen UI-Dateien
+from editor_Director import Ui_editor_director  # Importiere alle neuen UI-Dateien
 from editor_T2T import Ui_Set_Creator_T2T  # für späteres Nutzen, Verknüpfung mit
 from editor_T2I import Ui_Set_Creator_T2I  # den passenden Buttons muss noch gemacht
 from editor_LText import Ui_Set_Creator_LText  # werden, Versuche ich noch zu machen (22.03. 9:13)
@@ -32,12 +31,6 @@ correct_counter = 0
 data = None
 text_list = []
 word_list = []
-
-
-# Open Settings on Settings Button press
-def settings_open():
-    settings.show()
-    pass
 
 
 # Open About on About Button press
@@ -62,20 +55,31 @@ def editor_director_open():
 
 
 def editor_t2t_open():
-    editor_t2t_init()
-    editor_t2t.show()
+    try:
+        editor_t2t_init()
+        editor_t2t.show()
+    except TypeError:
+        print("")
     pass
 
 
 def editor_t2i_open():
-    editor_t2i_init()
-    editor_t2i.show()
+    try:
+        editor_t2i_init()
+        editor_t2i.show()
+    except TypeError:
+        print("")
     pass
 
 
 def editor_ltext_open():
-    editor_ltext_init()
-    editor_ltext.show()
+    try:
+        editor_ltext_init()
+        editor_ltext.show()
+    except TypeError:
+        print("")
+    except FileNotFoundError:
+        print("")
     pass
 
 
@@ -515,9 +519,6 @@ creator = QWidget()
 # Landingpage Setup
 landingpage_ui = Ui_MainWindow()
 landingpage_ui.setupUi(window)
-# Settings Setup
-settings_ui = Ui_SettingsWindow()
-settings_ui.setupUi(settings)
 # About Setup
 about_ui = Ui_About()
 about_ui.setupUi(about)
@@ -534,7 +535,7 @@ pictures_ui.setupUi(pictures)
 ltext_ui = Ui_LText()
 ltext_ui.setupUi(ltext)
 # Editor Director Setup
-editor_director_ui = Ui_Set_Creator_Director()
+editor_director_ui = Ui_editor_director()
 editor_director_ui.setupUi(editor_director)
 # T2T Editor Setup
 editor_t2t_ui = Ui_Set_Creator_T2T()
@@ -550,13 +551,10 @@ creator_ui = Ui_Creator()
 creator_ui.setupUi(creator)
 
 # Landingpage Connects
-landingpage_ui.SettingsButton.clicked.connect(settings_open)
 landingpage_ui.OpenButton.clicked.connect(open_type_open)
 landingpage_ui.CreateButton.clicked.connect(editor_director_open)
-landingpage_ui.about_button.clicked.connect(about_open)
+landingpage_ui.about_Button.clicked.connect(about_open)
 landingpage_ui.actionCreate_Set.triggered.connect(creator_open)
-# Settings Connects
-settings_ui.about_button.clicked.connect(about_open)
 # Open Type Select Connects
 open_type_ui.T2T_Button.clicked.connect(definitions_open)
 open_type_ui.P2T_Button.clicked.connect(pictures_open)
@@ -580,9 +578,9 @@ pictures_ui.term3_button.clicked.connect(lambda: pictures_term_button_clicked(pi
 # LText Connects
 ltext_ui.check_button.clicked.connect(ltext_check)
 # Creator Director Contents
-editor_director_ui.Add_T2T_Button.clicked.connect(editor_t2t_open)
-editor_director_ui.Add_T2I_Button.clicked.connect(editor_t2i_open)
-editor_director_ui.Add_LText_Button.clicked.connect(editor_ltext_open)
+editor_director_ui.T2T_Button.clicked.connect(editor_t2t_open)
+editor_director_ui.T2I_Button.clicked.connect(editor_t2i_open)
+editor_director_ui.LText_Button.clicked.connect(editor_ltext_open)
 # T2T Editor Connects
 editor_t2t_ui.save_button.clicked.connect(editor_t2t_save)
 # T2I Editor Connects

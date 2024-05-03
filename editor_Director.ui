@@ -1,57 +1,274 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Set_Creator_Director</class>
- <widget class="QWidget" name="Set_Creator_Director">
+ <class>editor_director</class>
+ <widget class="QWidget" name="editor_director">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>313</width>
-    <height>181</height>
+    <width>500</width>
+    <height>468</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Art des hinzugefügten Sets auswählen</string>
+   <string>Practise Type</string>
   </property>
-  <widget class="QPushButton" name="Add_T2T_Button">
+  <widget class="QPushButton" name="T2T_Button">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>40</y>
-     <width>251</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Begriff-zu-Definition hinzufügen</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="Add_LText_Button">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
+     <x>10</x>
      <y>120</y>
-     <width>251</width>
-     <height>24</height>
+     <width>380</width>
+     <height>80</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">/* Definitions to Terms */
+
+position: absolute;
+width: 380px;
+height: 80px;
+left: 10px;
+top: 120px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
    <property name="text">
-    <string>Lückentext hinzufügen</string>
+    <string>Definitions to Terms</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="Add_T2I_Button">
+  <widget class="QPushButton" name="T2I_Button">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>80</y>
-     <width>251</width>
-     <height>24</height>
+     <x>110</x>
+     <y>233</y>
+     <width>380</width>
+     <height>80</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">/* Pictures to Terms */
+
+position: absolute;
+width: 380px;
+height: 80px;
+left: 110px;
+top: 233px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: left;
+
+color: #E3DBA4;
+
+
+</string>
+   </property>
    <property name="text">
-    <string>Begriff-zu-Bild hinzufügen</string>
+    <string>Picture to Terms</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="LText_Button">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>346</y>
+     <width>380</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Complete Gap-Texts */
+
+position: absolute;
+width: 380px;
+height: 80px;
+left: 10px;
+top: 346px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #E3DBA4;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Complete Gap-Texts</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="header_panel">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>-20</y>
+     <width>520</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #56855E;
+border-radius: 20px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="header">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>480</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Select a Type of Practice */
+
+position: absolute;
+width: 480px;
+height: 60px;
+left: 0px;
+top: 0px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Select a Type of Practice</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="button1_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>120</y>
+     <width>415</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 17 */
+
+position: absolute;
+width: 415px;
+height: 80px;
+left: -15px;
+top: 120px;
+
+background: #56855E;
+border-radius: 15px;
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="button2_panel">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>233</y>
+     <width>415</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 17 */
+
+position: absolute;
+width: 415px;
+height: 80px;
+left: -15px;
+top: 120px;
+
+background: #56855E;
+border-radius: 15px;
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="button3_panel">
+   <property name="geometry">
+    <rect>
+     <x>-15</x>
+     <y>346</y>
+     <width>415</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* Rectangle 17 */
+
+position: absolute;
+width: 415px;
+height: 80px;
+left: -15px;
+top: 120px;
+
+background: #56855E;
+border-radius: 15px;
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>button3_panel</zorder>
+  <zorder>button2_panel</zorder>
+  <zorder>button1_panel</zorder>
+  <zorder>T2T_Button</zorder>
+  <zorder>T2I_Button</zorder>
+  <zorder>LText_Button</zorder>
+  <zorder>header_panel</zorder>
+  <zorder>header</zorder>
  </widget>
  <resources/>
  <connections/>

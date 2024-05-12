@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
         self.header_panel.setText("")
         self.header_panel.setObjectName("header_panel")
         self.Header_label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.Header_label.setGeometry(QtCore.QRect(20, 50, 632, 92))
+        self.Header_label.setGeometry(QtCore.QRect(20, 50, 281, 92))
         font = QtGui.QFont()
         font.setFamily("Atkinson Hyperlegible")
         font.setPointSize(-1)
@@ -68,7 +68,7 @@ class Ui_MainWindow(object):
 "")
         self.Header_label.setObjectName("Header_label")
         self.authors_label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.authors_label.setGeometry(QtCore.QRect(652, 96, 279, 36))
+        self.authors_label.setGeometry(QtCore.QRect(300, 96, 279, 36))
         self.authors_label.setStyleSheet("/* by Moritz and Thor */\n"
 "\n"
 "position: absolute;\n"
@@ -181,7 +181,10 @@ class Ui_MainWindow(object):
 "")
         self.about_text.setObjectName("about_text")
         self.logo_panel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.logo_panel.setGeometry(QtCore.QRect(30, 266, 316, 360))
+        self.logo_panel.setGeometry(QtCore.QRect(20, 300, 311, 291))
+        self.logo_panel.setText("")
+        self.logo_panel.setPixmap(QtGui.QPixmap("img/logo.png"))
+        self.logo_panel.setScaledContents(True)
         self.logo_panel.setObjectName("logo_panel")
         self.open_panel.raise_()
         self.open_text.raise_()
@@ -224,12 +227,11 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Intel Grabbers"))
-        self.Header_label.setText(_translate("MainWindow", "Vocab-Trainer"))
+        self.Header_label.setText(_translate("MainWindow", "Ferret"))
         self.authors_label.setText(_translate("MainWindow", "by Moritz & Thor"))
         self.create_text.setText(_translate("MainWindow", "Edit Set"))
         self.open_text.setText(_translate("MainWindow", "Open Set"))
         self.about_text.setText(_translate("MainWindow", "About Us"))
-        self.logo_panel.setText(_translate("MainWindow", "mascot here"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))

@@ -88,7 +88,7 @@ border-radius: 50px;
      <rect>
       <x>20</x>
       <y>50</y>
-      <width>632</width>
+      <width>281</width>
       <height>92</height>
      </rect>
     </property>
@@ -123,13 +123,13 @@ color: #FFFFFF;
 </string>
     </property>
     <property name="text">
-     <string>Vocab-Trainer</string>
+     <string>Ferret</string>
     </property>
    </widget>
    <widget class="QLabel" name="authors_label">
     <property name="geometry">
      <rect>
-      <x>652</x>
+      <x>300</x>
       <y>96</y>
       <width>279</width>
       <height>36</height>
@@ -325,14 +325,20 @@ color: #E3DBA4;
    <widget class="QLabel" name="logo_panel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>266</y>
-      <width>316</width>
-      <height>360</height>
+      <x>20</x>
+      <y>300</y>
+      <width>311</width>
+      <height>291</height>
      </rect>
     </property>
     <property name="text">
-     <string>mascot here</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>img/logo.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <zorder>open_panel</zorder>
